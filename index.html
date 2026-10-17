@@ -72,14 +72,14 @@ const STORIES = [
     {art:"🐭🏃‍♂️🦁", text:"A tiny mouse runs on the lion's nose!", ko:"작은 쥐가 사자 코 위로 달려가요!",
      why:{who:"🐭 Mouse", text:"I didn't see him! I was looking for cheese.", ko:"못 봤어요! 치즈 찾느라 바빴거든요."},
      quiz:{q:"How does the lion feel?", opts:[["😡","angry",1],["😴","sleepy",0],["😂","funny",0]]}},
-    {art:"🦁🐾🐭", text:"\"ROAR! I will eat you!\" \"Please let me go. Someday I will help you!\"", ko:"\"어흥! 잡아먹겠다!\" \"놓아주세요. 언젠가 도와드릴게요!\"",
+    {art:"🦁🐾🐭", who:"lion,mouse", text:"\"ROAR! I will eat you!\" \"Please let me go. Someday I will help you!\"", ko:"\"어흥! 잡아먹겠다!\" \"놓아주세요. 언젠가 도와드릴게요!\"",
      why:{who:"🦁 Lion", text:"Ha ha! A tiny mouse help me? That is so funny! Okay, go home, little one.", ko:"하하! 작은 쥐가 나를 돕는다고? 웃기네! 그래, 집에 가렴."},
      ask:{q:`${KID}, can a tiny mouse help a big lion?`, ko:"작은 쥐가 큰 사자를 도울 수 있을까?"}},
-    {art:"🦁🕸️😢", text:"One day, the lion is caught in a net. \"Help! Help!\"", ko:"어느 날 사자가 그물에 걸렸어요. \"도와줘!\"",
+    {art:"🦁🕸️😢", who:"lion", text:"One day, the lion is caught in a net. \"Help! Help!\"", ko:"어느 날 사자가 그물에 걸렸어요. \"도와줘!\"",
      quiz:{q:"How does the lion feel now?", opts:[["😊","happy",0],["😢","scared",1],["😴","sleepy",0]]}},
     {art:"🐭🦷🕸️", text:"The mouse comes. Chomp, chomp, chomp! The net breaks!", ko:"쥐가 와서 냠냠냠! 그물을 끊었어요!",
      why:{who:"🐭 Mouse", text:"He let me go before. So now I help him. That's what friends do!", ko:"전에 저를 놓아줬잖아요. 그래서 이번엔 제가 도와요. 친구니까요!"}},
-    {art:"🦁❤️🐭", text:"\"Thank you, little friend!\" The lion and the mouse are best friends.", ko:"\"고마워, 작은 친구!\" 둘은 단짝이 되었어요.",
+    {art:"🦁❤️🐭", who:"lion", text:"\"Thank you, little friend!\" The lion and the mouse are best friends.", ko:"\"고마워, 작은 친구!\" 둘은 단짝이 되었어요.",
      ask:{q:`${KID}, who is your little friend?`, ko:"태리의 작은 친구는 누구야?"}}
   ]
 },
@@ -87,17 +87,17 @@ const STORIES = [
   id:"race", title:"The Tortoise and the Hare", ko:"토끼와 거북이", cover:"🐢🐇",
   moral:"Slow and steady wins the race!", moralKo:"천천히 꾸준히 하면 이겨요!",
   scenes:[
-    {art:"🐇💨", text:"\"I am the fastest!\" says the hare. \"Nobody can beat me!\"", ko:"\"내가 제일 빨라! 아무도 날 못 이겨!\"",
+    {art:"🐇💨", who:"hare,hare", text:"\"I am the fastest!\" says the hare. \"Nobody can beat me!\"", ko:"\"내가 제일 빨라! 아무도 날 못 이겨!\"",
      why:{who:"🐇 Hare", text:"I have long legs! Hop, hop, zoom! I like to show off.", ko:"내 다리는 길거든! 깡충, 슝! 자랑하는 게 좋아."}},
-    {art:"🐢🙋", text:"\"Let's have a race,\" says the tortoise.", ko:"\"우리 경주하자.\" 거북이가 말해요.",
+    {art:"🐢🙋", who:"tortoise", text:"\"Let's have a race,\" says the tortoise.", ko:"\"우리 경주하자.\" 거북이가 말해요.",
      why:{who:"🐢 Tortoise", text:"I am slow, but I never stop. I want to try!", ko:"난 느리지만 절대 멈추지 않아. 해보고 싶어!"},
      ask:{q:"Who will win? The hare or the tortoise?", ko:"누가 이길까? 토끼? 거북이?"}},
     {art:"🏁🐇💨 🐢", text:"Ready, set, GO! The hare runs far, far away.", ko:"준비, 출발! 토끼가 멀리멀리 달려가요."},
-    {art:"🐇💤🌳", text:"\"The tortoise is so slow. I will take a nap.\" Zzz...", ko:"\"거북이는 너무 느려. 낮잠 좀 자야지.\" 쿨쿨...",
+    {art:"🐇💤🌳", who:"hare", text:"\"The tortoise is so slow. I will take a nap.\" Zzz...", ko:"\"거북이는 너무 느려. 낮잠 좀 자야지.\" 쿨쿨...",
      quiz:{q:"Is it a good idea to sleep in a race?", opts:[["👍","yes",0],["👎","no",1]]}},
     {art:"🐢👣👣👣", text:"Step, step, step. The tortoise never stops.", ko:"한 걸음, 한 걸음. 거북이는 멈추지 않아요.",
      ask:{q:`Let's cheer! "Go, tortoise, go!" Can you say it, ${KID}?`, ko:"같이 응원해요! \"Go, tortoise, go!\""}},
-    {art:"🐢🏆🎉", text:"The tortoise wins! The hare wakes up. \"Oh no!\"", ko:"거북이가 이겼어요! 토끼가 깨서 \"이런!\"",
+    {art:"🐢🏆🎉", who:"hare", text:"The tortoise wins! The hare wakes up. \"Oh no!\"", ko:"거북이가 이겼어요! 토끼가 깨서 \"이런!\"",
      quiz:{q:"How does the hare feel?", opts:[["😳","surprised",1],["😄","happy",0]]}}
   ]
 },
@@ -112,9 +112,9 @@ const STORIES = [
      ask:{q:"What food do the ants carry?", ko:"개미들은 무슨 음식을 나를까?"}},
     {art:"❄️🦗🥶", text:"Now it is winter. Brrr! The grasshopper is cold and hungry.", ko:"이제 겨울이에요. 덜덜! 베짱이는 춥고 배고파요.",
      quiz:{q:"How does the grasshopper feel?", opts:[["🥶","cold",1],["😎","cool",0],["🥳","party",0]]}},
-    {art:"🦗🚪🐜", text:"Knock, knock. \"Can I have some food, please?\"", ko:"똑똑. \"음식 좀 나눠줄 수 있니?\"",
+    {art:"🦗🚪🐜", who:"grasshopper", text:"Knock, knock. \"Can I have some food, please?\"", ko:"똑똑. \"음식 좀 나눠줄 수 있니?\"",
      ask:{q:`${KID}, what should the ants do?`, ko:"태리라면 개미들이 어떻게 해야 할 것 같아?"}},
-    {art:"🐜🍲🦗", text:"The ants share their soup. \"Next summer, I will work too!\"", ko:"개미들이 수프를 나눠줘요. \"내년 여름엔 나도 일할게!\"",
+    {art:"🐜🍲🦗", who:"grasshopper", text:"The ants share their soup. \"Next summer, I will work too!\"", ko:"개미들이 수프를 나눠줘요. \"내년 여름엔 나도 일할게!\"",
      why:{who:"🦗 Grasshopper", text:"I learned my lesson. Work first, then play!", ko:"이제 알았어. 할 일 먼저, 그다음 놀기!"}}
   ]
 },
@@ -124,15 +124,15 @@ const STORIES = [
   scenes:[
     {art:"👦🐑🐑🐑", text:"A boy watches the sheep on a hill. He is bored.", ko:"소년이 언덕에서 양을 지켜요. 심심해요.",
      why:{who:"👦 Boy", text:"Nothing happens here. So boring! I want some fun.", ko:"여긴 아무 일도 없어. 너무 심심해! 재밌는 게 필요해."}},
-    {art:"👦📢😆", text:"\"Wolf! Wolf!\" he shouts. The people run up the hill.", ko:"\"늑대다!\" 소리쳐요. 사람들이 달려와요.",
+    {art:"👦📢😆", who:"boy", text:"\"Wolf! Wolf!\" he shouts. The people run up the hill.", ko:"\"늑대다!\" 소리쳐요. 사람들이 달려와요.",
      quiz:{q:"Is there a wolf?", opts:[["🐺","yes",0],["🙅","no",1]]}},
-    {art:"👨‍🌾😠👦😂", text:"\"Ha ha! There is no wolf!\" The people are angry.", ko:"\"하하! 늑대 없지롱!\" 사람들이 화가 났어요.",
+    {art:"👨‍🌾😠👦😂", who:"boy", text:"\"Ha ha! There is no wolf!\" The people are angry.", ko:"\"하하! 늑대 없지롱!\" 사람들이 화가 났어요.",
      ask:{q:`${KID}, is it okay to tell a lie?`, ko:"거짓말해도 괜찮을까?"}},
-    {art:"🐺🐑😱", text:"Then a REAL wolf comes! \"Wolf! Wolf! Help!\"", ko:"그런데 진짜 늑대가 왔어요! \"늑대다! 도와줘요!\""},
-    {art:"🏠👨‍🌾🙉", text:"Nobody comes. \"He is lying again,\" they say.", ko:"아무도 안 와요. \"또 거짓말이겠지.\"",
+    {art:"🐺🐑😱", who:"boy", text:"Then a REAL wolf comes! \"Wolf! Wolf! Help!\"", ko:"그런데 진짜 늑대가 왔어요! \"늑대다! 도와줘요!\""},
+    {art:"🏠👨‍🌾🙉", who:"villager", text:"Nobody comes. \"He is lying again,\" they say.", ko:"아무도 안 와요. \"또 거짓말이겠지.\"",
      why:{who:"👨‍🌾 Villager", text:"He tricked us before. So we don't believe him now.", ko:"전에 우리를 속였잖아요. 그래서 이제 안 믿어요."},
      quiz:{q:"How does the boy feel?", opts:[["😭","sad",1],["😆","happy",0]]}},
-    {art:"👦🤝🐑", text:"\"I am sorry. From now on, I will always tell the truth.\"", ko:"\"죄송해요. 이제부터 항상 진실만 말할게요.\""}
+    {art:"👦🤝🐑", who:"boy", text:"\"I am sorry. From now on, I will always tell the truth.\"", ko:"\"죄송해요. 이제부터 항상 진실만 말할게요.\""}
   ]
 },
 {
@@ -140,13 +140,13 @@ const STORIES = [
   moral:"Hard work keeps you safe!", moralKo:"열심히 만든 건 튼튼해요!",
   scenes:[
     {art:"🐷🐷🐷", text:"Three little pigs want to build houses.", ko:"아기 돼지 세 마리가 집을 지으려 해요."},
-    {art:"🐷🌾🏠", text:"Pig One builds a straw house. \"Done! Let's play!\"", ko:"첫째는 지푸라기 집. \"끝! 놀자!\"",
+    {art:"🐷🌾🏠", who:"pig", text:"Pig One builds a straw house. \"Done! Let's play!\"", ko:"첫째는 지푸라기 집. \"끝! 놀자!\"",
      why:{who:"🐷 Pig One", text:"Straw is easy and fast! I want to play soon.", ko:"지푸라기는 쉽고 빨라! 빨리 놀고 싶어."}},
-    {art:"🐷🪵🏠", text:"Pig Two builds a stick house. \"Done! Let's play!\"", ko:"둘째는 나무막대 집. \"끝! 놀자!\""},
+    {art:"🐷🪵🏠", who:"pig", text:"Pig Two builds a stick house. \"Done! Let's play!\"", ko:"둘째는 나무막대 집. \"끝! 놀자!\""},
     {art:"🐷🧱🏠", text:"Pig Three builds a brick house. It takes a long time.", ko:"셋째는 벽돌 집. 오래 걸려요.",
      why:{who:"🐷 Pig Three", text:"Bricks are heavy, but strong. I want a safe house.", ko:"벽돌은 무겁지만 튼튼해. 안전한 집이 좋아."},
      ask:{q:`${KID}, which house do you like?`, ko:"태리는 어떤 집이 좋아?"}},
-    {art:"🐺💨🏚️", text:"The wolf comes. \"I'll huff and I'll puff and I'll blow your house down!\"", ko:"늑대가 와요. \"후~ 후~ 불어서 날려버리겠다!\"",
+    {art:"🐺💨🏚️", who:"wolf", text:"The wolf comes. \"I'll huff and I'll puff and I'll blow your house down!\"", ko:"늑대가 와요. \"후~ 후~ 불어서 날려버리겠다!\"",
      ask:{q:"Let's blow like the wolf! Huff! Puff!", ko:"늑대처럼 후~ 불어볼까?"}},
     {art:"🐺😵🧱🐷🐷🐷", text:"The straw and stick houses fall down. But the brick house stands!", ko:"지푸라기와 막대 집은 무너졌지만 벽돌 집은 끄떡없어요!",
      quiz:{q:"Which house is the strongest?", opts:[["🌾","straw",0],["🪵","sticks",0],["🧱","bricks",1]]}}
@@ -160,7 +160,7 @@ const STORIES = [
      why:{who:"👧 Cinderella", text:"I am sad sometimes, but I try to be kind to everyone.", ko:"가끔 슬프지만 모두에게 친절하려고 해요."}},
     {art:"✉️👑💃", text:"The prince has a party! But Cinderella can't go.", ko:"왕자님 무도회! 하지만 신데렐라는 못 가요.",
      quiz:{q:"How does Cinderella feel?", opts:[["😢","sad",1],["😄","happy",0]]}},
-    {art:"🧚‍♀️✨🎃", text:"Poof! A fairy godmother comes. \"You shall go to the party!\"", ko:"뿅! 요정 대모가 나타나요. \"무도회에 가게 해줄게!\"",
+    {art:"🧚‍♀️✨🎃", who:"fairy", text:"Poof! A fairy godmother comes. \"You shall go to the party!\"", ko:"뿅! 요정 대모가 나타나요. \"무도회에 가게 해줄게!\"",
      ask:{q:`${KID}, if you had a magic wand, what would you make?`, ko:"마법 지팡이가 있다면 뭘 만들고 싶어?"}},
     {art:"🎃➡️🚗✨👗", text:"The pumpkin becomes a coach. She gets a pretty dress and glass shoes.", ko:"호박이 마차로! 예쁜 드레스와 유리구두도요.",
      why:{who:"🧚‍♀️ Fairy", text:"Remember! The magic ends at twelve o'clock!", ko:"기억해! 마법은 12시에 끝나!"}},
@@ -211,21 +211,59 @@ if("speechSynthesis" in window){pickVoice();speechSynthesis.onvoiceschanged=pick
 // 전체 읽기(자동 넘김) 상태. playId가 바뀌면 이전 재생의 콜백은 무시
 let auto=false, playId=0;
 function stopAuto(){auto=false;playId++}
-function speak(text,{rate=0.78,pitch=1,spans=null,done=null}={}){
-  if(!("speechSynthesis" in window))return;
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  if(voice)u.voice=voice; u.lang="en-US"; u.rate=rate; u.pitch=pitch;
-  if(spans){
-    const starts=[];let pos=0;
-    spans.forEach(s=>{const i=text.indexOf(s.dataset.w,pos);starts.push(i);pos=i+s.dataset.w.length});
-    u.onboundary=e=>{spans.forEach((s,i)=>s.classList.toggle("on",e.charIndex>=starts[i]&&e.charIndex<starts[i]+s.dataset.w.length))};
-  }
-  u.onend=()=>{spans&&spans.forEach(s=>s.classList.remove("on"));done&&done()};
-  speechSynthesis.speak(u);
+// 배역: g = 목소리 종류(n 나레이터, m 남자, f 여자, c 아이), 음높이·속도로 성격 표현
+const CAST={
+  narrator:{g:"n",pitch:1,rate:.78},
+  lion:{g:"m",pitch:.75,rate:.75}, wolf:{g:"m",pitch:.7,rate:.8}, villager:{g:"m",pitch:.9,rate:.82},
+  tortoise:{g:"m",pitch:.85,rate:.6}, hare:{g:"m",pitch:1.2,rate:.98}, grasshopper:{g:"m",pitch:1.15,rate:.9},
+  prince:{g:"m",pitch:1,rate:.8},
+  mouse:{g:"c",pitch:1.45,rate:.92}, boy:{g:"c",pitch:1.15,rate:.88}, pig:{g:"c",pitch:1.35,rate:.9},
+  ant:{g:"f",pitch:1.25,rate:.88}, fairy:{g:"f",pitch:1.3,rate:.82}, cinderella:{g:"f",pitch:1.1,rate:.8},
+  stepsister:{g:"f",pitch:1.2,rate:.9}
+};
+const MALE=/Guy|Davis|Christopher|Eric|Roger|Steffan|Andrew|Brian|Ryan|Tony|Jason|Daniel|Alex|Aaron|Thomas|Oliver|George|David|Mark|Male|Tom|Evan|Nathan|Arthur/i;
+const CHILD=/\bAna\b/i;
+const castVoice={};
+function castVoices(){
+  const fem=voices.filter(v=>!MALE.test(v.name)&&!CHILD.test(v.name));
+  const male=voices.filter(v=>MALE.test(v.name));
+  const kid=voices.filter(v=>CHILD.test(v.name));
+  castVoice.n=voice;
+  castVoice.m=male[0]||voice;
+  castVoice.f=fem.find(v=>v!==voice)||voice;
+  castVoice.c=kid[0]||castVoice.f;
 }
-// 음높이를 크게 바꾸면 기계음처럼 들려서 살짝만 조절
-const voiceFor=who=>/Lion|Wolf|Villager/.test(who)?{pitch:.85,rate:.85}:/Mouse|Fairy/.test(who)?{pitch:1.2,rate:.95}:/Tortoise/.test(who)?{pitch:.95,rate:.75}:/Hare|Grasshopper/.test(who)?{pitch:1.1,rate:1}:{pitch:1,rate:.9};
+const roleOf=who=>{const w=who.toLowerCase();return Object.keys(CAST).find(k=>w.includes(k))||"narrator"};
+
+// parts([{text, role, offset}])를 차례로 읽는다. offset은 단어 하이라이트용 원문 내 위치
+function speakParts(parts,{spans=null,done=null,slow=false,full=""}={}){
+  if(!("speechSynthesis" in window))return;
+  speechSynthesis.cancel(); castVoices();
+  let starts=null;
+  if(spans){starts=[];let pos=0;
+    spans.forEach(sp=>{const i=full.indexOf(sp.dataset.w,pos);starts.push(i);pos=i+sp.dataset.w.length})}
+  parts.forEach((p,k)=>{
+    const c=p.voice||CAST[p.role]||CAST.narrator;
+    const u=new SpeechSynthesisUtterance(p.text);
+    const v=castVoice[c.g]||voice; if(v)u.voice=v;
+    u.lang="en-US"; u.pitch=c.pitch; u.rate=c.rate*(slow?.72:1);
+    if(spans)u.onboundary=e=>{const at=p.offset+e.charIndex;spans.forEach((sp,i)=>sp.classList.toggle("on",at>=starts[i]&&at<starts[i]+sp.dataset.w.length))};
+    if(k===parts.length-1)u.onend=()=>{spans&&spans.forEach(sp=>sp.classList.remove("on"));done&&done()};
+    speechSynthesis.speak(u);
+  });
+}
+// 장면 문장을 나레이션과 "대사"로 쪼개고, 대사에는 who 순서대로 배역을 붙인다
+function sceneParts(sc){
+  const who=(sc.who||"").split(",").filter(Boolean);let q=0;const out=[];
+  for(const m of sc.text.matchAll(/"[^"]*"|[^"]+/g)){
+    if(!m[0].trim())continue;
+    out.push({text:m[0],offset:m.index,role:m[0].startsWith('"')?(who[q++]||"narrator"):"narrator"});
+  }
+  return out;
+}
+const readScene=(sc,opt={})=>speakParts(sceneParts(sc),{...opt,full:sc.text});
+const speak=(text,{rate=0.78,pitch=1,done=null}={})=>speakParts([{text,offset:0,voice:{g:"n",pitch,rate}}],{done});
+const speakAs=(text,role)=>speakParts([{text,offset:0,role}]);
 
 // ---------- 화면 ----------
 function home(){
@@ -233,7 +271,7 @@ function home(){
   app.innerHTML=`<p style="font-size:1.1rem">Hi, ${KID}! 👋 Pick a story!</p><div class="grid">${
     STORIES.map(s=>`<button class="book" data-id="${s.id}"><div class="cover"><img src="images/${s.id}/scene${s.scenes.length}.webp" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px" onerror="this.replaceWith('${s.cover}')"></div><b>${s.title}</b><small>${s.ko}</small>${finished[s.id]?'<div class="done">✅ Done!</div>':''}</button>`).join("")
   }</div>
-  <div style="margin-top:28px;color:var(--soft);font-size:.95rem">🗣️ 읽어주는 목소리 (부모용)<br>
+  <div style="margin-top:28px;color:var(--soft);font-size:.95rem">🗣️ 나레이터 목소리 (부모용) · 캐릭터 목소리는 자동 배정<br>
     <select id="voiceSel" style="font:inherit;padding:8px;border-radius:10px;margin-top:6px;max-width:100%"></select>
     <button class="btn" id="test" style="margin-left:6px;padding:8px 12px">▶ 들어보기</button></div>`;
   app.querySelectorAll(".book").forEach(b=>b.onclick=()=>read(b.dataset.id,0));
@@ -278,19 +316,19 @@ function read(id,i){
   if(auto){
     const my=++playId;
     setTimeout(()=>{ if(my!==playId)return;
-      speak(sc.text,{spans,done:()=>{ if(my===playId) setTimeout(()=>{ if(my===playId) read(id,i+1) },1800) }});
+      readScene(sc,{spans,done:()=>{ if(my===playId) setTimeout(()=>{ if(my===playId) read(id,i+1) },1800) }});
     },700);
   }
   $("ko").onclick=()=>{showKo=!showKo;store.set("showKo",showKo);read(id,i)};
-  $("read").onclick=()=>{stopAuto();speak(sc.text,{spans})};
-  $("slow").onclick=()=>{stopAuto();speak(sc.text,{rate:.55,spans})};
+  $("read").onclick=()=>{stopAuto();readScene(sc,{spans})};
+  $("slow").onclick=()=>{stopAuto();readScene(sc,{spans,slow:true})};
   spans.forEach(sp=>sp.onclick=()=>speak(sp.dataset.w.replace(/[^\w']/g,""),{rate:.7}));
   $("prev").onclick=()=>{if(i>0){stopAuto();speechSynthesis.cancel();read(id,i-1)}};
   $("next").onclick=()=>{stopAuto();speechSynthesis.cancel();read(id,i+1)};
   const open=html=>{panel.innerHTML=html;panel.classList.add("show");panel.classList.remove("pop");void panel.offsetWidth;panel.classList.add("pop")};
   if(sc.why)$("why").onclick=()=>{pause();
     open(`<h3>${sc.why.who} says:</h3><p>"${sc.why.text}"</p>${showKo?`<p class="k">${sc.why.ko}</p>`:""}<div class="row"><button class="btn" id="again">🔊 Again</button></div>`);
-    const go=()=>speak(sc.why.text,voiceFor(sc.why.who)); go(); $("again").onclick=go;
+    const go=()=>speakAs(sc.why.text,roleOf(sc.why.who)); go(); $("again").onclick=go;
   };
   if(sc.ask)$("ask").onclick=()=>{pause();
     open(`<h3>💬 Let's talk!</h3><p>${sc.ask.q}</p>${showKo?`<p class="k">${sc.ask.ko}</p>`:""}<div class="row"><button class="btn" id="again">🔊 Again</button><button class="btn main" id="said">🙋 I said it!</button></div>`);
