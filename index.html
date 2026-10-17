@@ -208,7 +208,10 @@ function renderVoicePicker(){
   sel.innerHTML=voices.map(v=>`<option ${v===voice?"selected":""}>${v.name}</option>`).join("");
 }
 if("speechSynthesis" in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
-function speak(text,{rate=0.9,pitch=1,spans=null}={}){
+// 전체 읽기(자동 넘김) 상태. playId가 바뀌면 이전 재생의 콜백은 무시
+let auto=false, playId=0;
+function stopAuto(){auto=false;playId++}
+function speak(text,{rate=0.78,pitch=1,spans=null,done=null}={}){
   if(!("speechSynthesis" in window))return;
   speechSynthesis.cancel();
   const u=new SpeechSynthesisUtterance(text);
@@ -217,8 +220,8 @@ function speak(text,{rate=0.9,pitch=1,spans=null}={}){
     const starts=[];let pos=0;
     spans.forEach(s=>{const i=text.indexOf(s.dataset.w,pos);starts.push(i);pos=i+s.dataset.w.length});
     u.onboundary=e=>{spans.forEach((s,i)=>s.classList.toggle("on",e.charIndex>=starts[i]&&e.charIndex<starts[i]+s.dataset.w.length))};
-    u.onend=()=>spans.forEach(s=>s.classList.remove("on"));
   }
+  u.onend=()=>{spans&&spans.forEach(s=>s.classList.remove("on"));done&&done()};
   speechSynthesis.speak(u);
 }
 // 음높이를 크게 바꾸면 기계음처럼 들려서 살짝만 조절
@@ -226,7 +229,7 @@ const voiceFor=who=>/Lion|Wolf|Villager/.test(who)?{pitch:.85,rate:.85}:/Mouse|F
 
 // ---------- 화면 ----------
 function home(){
-  speechSynthesis?.cancel();
+  stopAuto(); speechSynthesis?.cancel();
   app.innerHTML=`<p style="font-size:1.1rem">Hi, ${KID}! 👋 Pick a story!</p><div class="grid">${
     STORIES.map(s=>`<button class="book" data-id="${s.id}"><div class="cover"><img src="images/${s.id}/scene${s.scenes.length}.webp" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px" onerror="this.replaceWith('${s.cover}')"></div><b>${s.title}</b><small>${s.ko}</small>${finished[s.id]?'<div class="done">✅ Done!</div>':''}</button>`).join("")
   }</div>
@@ -246,6 +249,7 @@ function read(id,i){
   const words=sc.text.split(/\s+/);
   app.innerHTML=`
   <div class="top"><button class="btn" id="home">🏠</button><b style="flex:1">${s.title}</b>
+    <button class="btn ${auto?"":"main"}" id="auto">${auto?"⏸ Stop":"▶ Read All"}</button>
     <button class="btn toggle" id="ko">${showKo?"🇰🇷 ON":"🇰🇷 OFF"}</button></div>
   <div class="scene">
     <div class="art pop ill"><img src="images/${s.id}/scene${i+1}.webp" alt="" decoding="async" onerror="this.parentNode.classList.remove('ill');this.parentNode.textContent=${JSON.stringify(sc.art).replace(/"/g,"&quot;")}"></div>
@@ -268,24 +272,32 @@ function read(id,i){
   const spans=[...app.querySelectorAll(".text span")];
   const panel=document.getElementById("panel");
   const $=id=>document.getElementById(id);
+  const pause=()=>{if(auto){stopAuto();$("auto").textContent="▶ Read All";$("auto").classList.add("main")}};
   $("home").onclick=home;
+  $("auto").onclick=()=>{ if(auto){stopAuto();speechSynthesis.cancel();read(id,i)} else {auto=true;read(id,i)} };
+  if(auto){
+    const my=++playId;
+    setTimeout(()=>{ if(my!==playId)return;
+      speak(sc.text,{spans,done:()=>{ if(my===playId) setTimeout(()=>{ if(my===playId) read(id,i+1) },1800) }});
+    },700);
+  }
   $("ko").onclick=()=>{showKo=!showKo;store.set("showKo",showKo);read(id,i)};
-  $("read").onclick=()=>speak(sc.text,{spans});
-  $("slow").onclick=()=>speak(sc.text,{rate:.55,spans});
+  $("read").onclick=()=>{stopAuto();speak(sc.text,{spans})};
+  $("slow").onclick=()=>{stopAuto();speak(sc.text,{rate:.55,spans})};
   spans.forEach(sp=>sp.onclick=()=>speak(sp.dataset.w.replace(/[^\w']/g,""),{rate:.7}));
-  $("prev").onclick=()=>i>0&&read(id,i-1);
-  $("next").onclick=()=>read(id,i+1);
+  $("prev").onclick=()=>{if(i>0){stopAuto();speechSynthesis.cancel();read(id,i-1)}};
+  $("next").onclick=()=>{stopAuto();speechSynthesis.cancel();read(id,i+1)};
   const open=html=>{panel.innerHTML=html;panel.classList.add("show");panel.classList.remove("pop");void panel.offsetWidth;panel.classList.add("pop")};
-  if(sc.why)$("why").onclick=()=>{
+  if(sc.why)$("why").onclick=()=>{pause();
     open(`<h3>${sc.why.who} says:</h3><p>"${sc.why.text}"</p>${showKo?`<p class="k">${sc.why.ko}</p>`:""}<div class="row"><button class="btn" id="again">🔊 Again</button></div>`);
     const go=()=>speak(sc.why.text,voiceFor(sc.why.who)); go(); $("again").onclick=go;
   };
-  if(sc.ask)$("ask").onclick=()=>{
+  if(sc.ask)$("ask").onclick=()=>{pause();
     open(`<h3>💬 Let's talk!</h3><p>${sc.ask.q}</p>${showKo?`<p class="k">${sc.ask.ko}</p>`:""}<div class="row"><button class="btn" id="again">🔊 Again</button><button class="btn main" id="said">🙋 I said it!</button></div>`);
     speak(sc.ask.q); $("again").onclick=()=>speak(sc.ask.q);
     $("said").onclick=()=>{addStar();speak(`Great job, ${KID}!`);$("said").disabled=true;$("said").textContent="⭐ +1"};
   };
-  if(sc.quiz)$("quiz").onclick=()=>{
+  if(sc.quiz)$("quiz").onclick=()=>{pause();
     open(`<h3>❓ ${sc.quiz.q}</h3><div class="opts">${sc.quiz.opts.map((o,k)=>`<button class="btn opt" data-k="${k}">${o[0]} ${o[1]}</button>`).join("")}</div>`);
     speak(sc.quiz.q); let got=false;
     panel.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
@@ -305,7 +317,7 @@ function end(s){
     <p style="font-size:1.4rem">💡 ${s.moral}</p><p class="k" style="color:var(--soft)">${s.moralKo}</p>
     <p>Great reading, ${KID}! ⭐⭐⭐</p>
     <div class="row"><button class="btn main" id="moral">🔊 Say it!</button><button class="btn" id="again">🔁 Again</button><button class="btn" id="home">🏠 Home</button></div></div>`;
-  speak(`The end! ${s.moral} Great reading, ${KID}!`);
+  stopAuto(); speak(`The end! ${s.moral} Great reading, ${KID}!`);
   document.getElementById("moral").onclick=()=>speak(s.moral);
   document.getElementById("again").onclick=()=>read(s.id,0);
   document.getElementById("home").onclick=home;
