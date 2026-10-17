@@ -45,20 +45,8 @@ main{max-width:900px;margin:0 auto;padding:0 16px 40px}
 .end{text-align:center}
 .end .big{font-size:5rem}
 .toggle{font-size:.95rem}
-.art.ill{font-size:0;line-height:0;margin:-6px -6px 0}
-.art.ill svg{width:100%;max-height:52vh;border-radius:18px;display:block;box-shadow:inset 0 0 0 4px #fff}
-.breathe{animation:breathe 3s ease-in-out infinite;transform-origin:center bottom;transform-box:fill-box}
-@keyframes breathe{50%{transform:scaleY(1.03)}}
-.zzz text{animation:zzz 2.4s ease-in-out infinite}.zzz text:nth-child(2){animation-delay:.4s}.zzz text:nth-child(3){animation-delay:.8s}
-@keyframes zzz{0%,100%{opacity:.2;transform:translateY(4px)}50%{opacity:1;transform:translateY(-4px)}}
-.hop{animation:hop .45s ease-in-out infinite;transform-box:fill-box}
-@keyframes hop{50%{transform:translateY(-8px)}}
-.chew{animation:chew .25s ease-in-out infinite;transform-box:fill-box}
-@keyframes chew{50%{transform:rotate(-6deg)}}
-.shiver{animation:shiver .18s linear infinite;transform-box:fill-box}
-@keyframes shiver{25%{transform:translateX(-1.5px)}75%{transform:translateX(1.5px)}}
-.twinkle{animation:twinkle 1.2s ease-in-out infinite}
-@keyframes twinkle{50%{opacity:.35}}
+.art.ill{font-size:0;line-height:0;margin:-8px -8px 0;position:relative}
+.art.ill img{width:100%;max-height:58vh;object-fit:cover;border-radius:18px;display:block;background:#f3e6cf;box-shadow:0 6px 18px rgba(90,60,30,.18)}
 @keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
 .pop{animation:pop .35s ease-out}
 </style>
@@ -79,19 +67,19 @@ const STORIES = [
   id:"lion", title:"The Lion and the Mouse", ko:"사자와 쥐", cover:"🦁🐭",
   moral:"Little friends can be great friends!", moralKo:"작은 친구도 큰 도움이 될 수 있어요!",
   scenes:[
-    {svg:1, art:"🦁💤", text:"A big lion is sleeping under a tree.", ko:"커다란 사자가 나무 아래에서 자고 있어요.",
+    {art:"🦁💤", text:"A big lion is sleeping under a tree.", ko:"커다란 사자가 나무 아래에서 자고 있어요.",
      ask:{q:"Is the lion big or small?", ko:"사자는 클까요, 작을까요?"}},
-    {svg:2, art:"🐭🏃‍♂️🦁", text:"A tiny mouse runs on the lion's nose!", ko:"작은 쥐가 사자 코 위로 달려가요!",
+    {art:"🐭🏃‍♂️🦁", text:"A tiny mouse runs on the lion's nose!", ko:"작은 쥐가 사자 코 위로 달려가요!",
      why:{who:"🐭 Mouse", text:"I didn't see him! I was looking for cheese.", ko:"못 봤어요! 치즈 찾느라 바빴거든요."},
      quiz:{q:"How does the lion feel?", opts:[["😡","angry",1],["😴","sleepy",0],["😂","funny",0]]}},
-    {svg:3, art:"🦁🐾🐭", text:"\"ROAR! I will eat you!\" \"Please let me go. Someday I will help you!\"", ko:"\"어흥! 잡아먹겠다!\" \"놓아주세요. 언젠가 도와드릴게요!\"",
+    {art:"🦁🐾🐭", text:"\"ROAR! I will eat you!\" \"Please let me go. Someday I will help you!\"", ko:"\"어흥! 잡아먹겠다!\" \"놓아주세요. 언젠가 도와드릴게요!\"",
      why:{who:"🦁 Lion", text:"Ha ha! A tiny mouse help me? That is so funny! Okay, go home, little one.", ko:"하하! 작은 쥐가 나를 돕는다고? 웃기네! 그래, 집에 가렴."},
      ask:{q:`${KID}, can a tiny mouse help a big lion?`, ko:"작은 쥐가 큰 사자를 도울 수 있을까?"}},
-    {svg:4, art:"🦁🕸️😢", text:"One day, the lion is caught in a net. \"Help! Help!\"", ko:"어느 날 사자가 그물에 걸렸어요. \"도와줘!\"",
+    {art:"🦁🕸️😢", text:"One day, the lion is caught in a net. \"Help! Help!\"", ko:"어느 날 사자가 그물에 걸렸어요. \"도와줘!\"",
      quiz:{q:"How does the lion feel now?", opts:[["😊","happy",0],["😢","scared",1],["😴","sleepy",0]]}},
-    {svg:5, art:"🐭🦷🕸️", text:"The mouse comes. Chomp, chomp, chomp! The net breaks!", ko:"쥐가 와서 냠냠냠! 그물을 끊었어요!",
+    {art:"🐭🦷🕸️", text:"The mouse comes. Chomp, chomp, chomp! The net breaks!", ko:"쥐가 와서 냠냠냠! 그물을 끊었어요!",
      why:{who:"🐭 Mouse", text:"He let me go before. So now I help him. That's what friends do!", ko:"전에 저를 놓아줬잖아요. 그래서 이번엔 제가 도와요. 친구니까요!"}},
-    {svg:6, art:"🦁❤️🐭", text:"\"Thank you, little friend!\" The lion and the mouse are best friends.", ko:"\"고마워, 작은 친구!\" 둘은 단짝이 되었어요.",
+    {art:"🦁❤️🐭", text:"\"Thank you, little friend!\" The lion and the mouse are best friends.", ko:"\"고마워, 작은 친구!\" 둘은 단짝이 되었어요.",
      ask:{q:`${KID}, who is your little friend?`, ko:"태리의 작은 친구는 누구야?"}}
   ]
 },
@@ -184,85 +172,6 @@ const STORIES = [
 }
 ];
 
-// ---------- SVG 일러스트 (사자와 쥐) ----------
-const C={mane:"#c26a2b",mane2:"#a8551f",fur:"#f6b453",fur2:"#e89a35",face:"#fbc97a",mouse:"#a7adb7",mouse2:"#8c939e",pink:"#f7a8b8",ink:"#3a2e2a"};
-function bg(mode){
-  const sky = mode==="sunset"?["#ffb37a","#ffe0b5"]:mode==="dark"?["#9fb3c8","#dfe7ef"]:["#9edcf5","#e6f7ff"];
-  const sun = mode==="sunset"?`<circle cx="320" cy="150" r="34" fill="#ff7e5f" opacity=".85"/>`:
-              mode==="dark"?`<circle cx="330" cy="50" r="18" fill="#fff7cc" opacity=".7"/>`:
-              `<circle cx="335" cy="55" r="26" fill="#ffd95a"/><circle cx="335" cy="55" r="36" fill="#ffd95a" opacity=".25"/>`;
-  return `<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${sky[0]}"/><stop offset="1" stop-color="${sky[1]}"/></linearGradient></defs>
-  <rect width="400" height="300" fill="url(#sky)"/>${sun}
-  <ellipse cx="70" cy="70" rx="30" ry="10" fill="#fff" opacity=".8"/><ellipse cx="95" cy="63" rx="22" ry="10" fill="#fff" opacity=".8"/>
-  <path d="M0 200 Q100 180 200 195 T400 190 V300 H0Z" fill="${mode==="sunset"?"#e3c27a":"#cfe08a"}"/>
-  <path d="M0 235 Q120 220 240 232 T400 228 V300 H0Z" fill="${mode==="sunset"?"#d4ad62":"#b7d26d"}"/>
-  <g transform="translate(60 120)"><path d="M18 90 C20 60 14 40 8 20 M18 60 C30 40 40 30 50 22" stroke="#7a5230" stroke-width="7" fill="none" stroke-linecap="round"/>
-    <ellipse cx="25" cy="14" rx="55" ry="14" fill="#7fb24a"/><ellipse cx="45" cy="6" rx="38" ry="11" fill="#93c25a"/></g>
-  <g fill="#9cc25a">${[[150,248],[260,255],[350,245],[30,260]].map(([x,y])=>`<path d="M${x} ${y} l3 -10 l3 10 l3 -8 l2 8z"/>`).join("")}</g>`;
-}
-function eyes(m){
-  const open=(x)=>`<circle cx="${x}" cy="-6" r="4.5" fill="${C.ink}"/><circle cx="${x+1.5}" cy="-7.5" r="1.5" fill="#fff"/>`;
-  const shut=(x)=>`<path d="M${x-6} -6 q6 6 12 0" stroke="${C.ink}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
-  if(m==="sleep")return shut(-11)+shut(11);
-  if(m==="peek")return shut(-11)+open(11);
-  if(m==="angry")return open(-11)+open(11)+`<path d="M-19 -17 L-5 -12 M19 -17 L5 -12" stroke="${C.ink}" stroke-width="3" stroke-linecap="round"/>`;
-  if(m==="scared")return `<circle cx="-11" cy="-6" r="7" fill="#fff"/><circle cx="11" cy="-6" r="7" fill="#fff"/><circle cx="-11" cy="-5" r="3" fill="${C.ink}"/><circle cx="11" cy="-5" r="3" fill="${C.ink}"/><path d="M-18 -18 L-6 -20 M18 -18 L6 -20" stroke="${C.ink}" stroke-width="2.5" stroke-linecap="round"/>`;
-  return `<path d="M-17 -5 q6 -7 12 0 M5 -5 q6 -7 12 0" stroke="${C.ink}" stroke-width="3" fill="none" stroke-linecap="round"/>`; // happy
-}
-function mouth(m){
-  if(m==="angry")return `<ellipse cx="0" cy="17" rx="10" ry="8" fill="#8a2b2b"/><path d="M-6 11 l2 4 l2 -4 M2 11 l2 4 l2 -4" fill="#fff"/>`;
-  if(m==="scared")return `<path d="M-8 18 q4 -4 8 0 q4 4 8 0" stroke="${C.ink}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
-  if(m==="happy")return `<path d="M-10 12 q10 12 20 0" stroke="${C.ink}" stroke-width="2.5" fill="#d9534f" stroke-linecap="round"/>`;
-  return `<path d="M-6 13 q3 3 6 0 q3 3 6 0" stroke="${C.ink}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
-}
-function lion(x,y,s,m){
-  const mane=[...Array(12)].map((_,i)=>{const a=i*Math.PI/6;return `<circle cx="${(Math.cos(a)*36).toFixed(1)}" cy="${(Math.sin(a)*36).toFixed(1)}" r="16" fill="${i%2?C.mane:C.mane2}"/>`}).join("");
-  return `<g transform="translate(${x} ${y}) scale(${s})"><g class="${m==="sleep"||m==="peek"?"breathe":m==="scared"?"shiver":""}">
-    <path d="M-68 0 C-100 -5 -105 -40 -92 -48" stroke="${C.fur2}" stroke-width="7" fill="none" stroke-linecap="round"/><ellipse cx="-92" cy="-50" rx="9" ry="11" fill="${C.mane}"/>
-    <ellipse cx="0" cy="0" rx="72" ry="38" fill="${C.fur}"/><ellipse cx="-10" cy="12" rx="50" ry="20" fill="${C.face}" opacity=".6"/>
-    <ellipse cx="-45" cy="32" rx="22" ry="10" fill="${C.fur2}"/><ellipse cx="45" cy="34" rx="24" ry="11" fill="${C.fur}"/><ellipse cx="78" cy="34" rx="24" ry="11" fill="${C.fur}"/>
-    <path d="M90 32 v6 M96 31 v6 M70 34 v5" stroke="${C.fur2}" stroke-width="2"/>
-    <g transform="translate(75 -30)">${mane}
-      <circle cx="-22" cy="-26" r="9" fill="${C.fur}"/><circle cx="22" cy="-26" r="9" fill="${C.fur}"/><circle cx="-22" cy="-26" r="4" fill="${C.pink}"/><circle cx="22" cy="-26" r="4" fill="${C.pink}"/>
-      <circle r="31" fill="${C.face}"/>${eyes(m)}
-      <circle cx="-20" cy="7" r="6" fill="${C.pink}" opacity=".6"/><circle cx="20" cy="7" r="6" fill="${C.pink}" opacity=".6"/>
-      <ellipse cx="0" cy="7" rx="13" ry="9" fill="#fde3b3"/><path d="M-6 2 h12 l-6 6z" fill="#7a3e2b"/>${mouth(m)}
-    </g></g></g>`;
-}
-function mouse(x,y,s,m,flip){
-  const eye = m==="scared"?`<circle cx="20" cy="-10" r="4" fill="#fff"/><circle cx="20" cy="-9" r="2" fill="${C.ink}"/><path d="M24 -4 q2 5 0 8" stroke="#6ec3ff" stroke-width="2" fill="none"/>`
-            : m==="happy"?`<path d="M16 -10 q4 -4 8 0" stroke="${C.ink}" stroke-width="2" fill="none" stroke-linecap="round"/>`
-            : `<circle cx="20" cy="-10" r="2.6" fill="${C.ink}"/><circle cx="21" cy="-11" r=".9" fill="#fff"/>`;
-  return `<g transform="translate(${x} ${y}) scale(${flip?-s:s} ${s})"><g class="${m==="run"?"hop":m==="chew"?"chew":""}">
-    <path d="M-18 4 C-40 10 -45 -15 -30 -18" stroke="${C.mouse2}" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <ellipse cx="0" cy="0" rx="20" ry="13" fill="${C.mouse}"/>
-    <circle cx="8" cy="-22" r="9" fill="${C.mouse}"/><circle cx="8" cy="-22" r="5.5" fill="${C.pink}"/>
-    <circle cx="16" cy="-8" r="11" fill="${C.mouse}"/><circle cx="20" cy="-23" r="8" fill="${C.mouse}"/><circle cx="20" cy="-23" r="4.5" fill="${C.pink}"/>
-    ${eye}<circle cx="27" cy="-5" r="2.6" fill="#e86a8a"/><circle cx="16" cy="-3" r="3" fill="${C.pink}" opacity=".7"/>
-    ${m==="happy"?`<path d="M18 0 q4 4 8 0" stroke="${C.ink}" stroke-width="1.6" fill="none"/>`:""}
-    ${m==="chew"?`<rect x="23" y="0" width="3" height="4" fill="#fff" stroke="${C.ink}" stroke-width=".6"/>`:""}
-    ${m==="beg"?`<ellipse cx="22" cy="4" rx="4" ry="5" fill="${C.pink}"/>`:`<ellipse cx="8" cy="12" rx="5" ry="3" fill="${C.pink}"/>`}
-    <ellipse cx="-8" cy="12" rx="5" ry="3" fill="${C.pink}"/></g></g>`;
-}
-const net=(cx,cy,broken)=>`<defs><pattern id="net" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0 H16 M0 0 V16" stroke="#7a5a3a" stroke-width="2.4"/></pattern>
-  <clipPath id="netclip"><ellipse cx="${cx}" cy="${cy}" rx="140" ry="75"/></clipPath></defs>
-  <rect x="0" y="0" width="400" height="300" fill="url(#net)" clip-path="url(#netclip)" opacity=".85"/>
-  <ellipse cx="${cx}" cy="${cy}" rx="140" ry="75" fill="none" stroke="#7a5a3a" stroke-width="4"/>
-  ${broken?`<path d="M${cx+105} ${cy-50} l12 -8 M${cx+115} ${cy-30} l14 4 M${cx+95} ${cy-62} l4 -14" stroke="#7a5a3a" stroke-width="3" stroke-linecap="round"/>
-  <g class="twinkle" fill="#ffd95a"><path d="M${cx+125} ${cy-60} l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3z"/><path d="M${cx+80} ${cy-75} l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2z"/></g>`:""}`;
-const zzz=`<g class="zzz" fill="#5b7fa8" font-family="Comic Sans MS, cursive" font-weight="bold"><text x="265" y="110" font-size="22">Z</text><text x="285" y="88" font-size="28">Z</text><text x="310" y="62" font-size="34">Z</text></g>`;
-const hearts=`<g class="twinkle" fill="#ff6b8a">${[[110,90,1],[300,70,1.3],[340,120,.9]].map(([x,y,s])=>`<path transform="translate(${x} ${y}) scale(${s})" d="M0 4 C-8 -6 -18 2 0 14 C18 2 8 -6 0 4z"/>`).join("")}</g>`;
-const ART={
-  1:()=>bg()+lion(170,215,1,"sleep")+zzz,
-  2:()=>bg()+lion(160,215,1,"peek")+mouse(240,148,.9,"run")+`<path d="M195 140 h-20 M198 150 h-26 M195 160 h-18" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".9"/>`,
-  3:()=>bg()+lion(150,220,1,"angry")+`<ellipse cx="300" cy="215" rx="26" ry="12" fill="${C.fur}"/>`+mouse(300,190,1.1,"scared",true)
-        +`<g stroke="#e05a3a" stroke-width="3" stroke-linecap="round" class="twinkle"><path d="M262 140 l14 -8 M266 156 l18 0 M262 172 l14 8"/></g>`,
-  4:()=>bg("dark")+lion(170,215,1,"scared")+net(200,195),
-  5:()=>bg("dark")+lion(150,215,1,"scared")+net(180,195,true)+mouse(320,140,1,"chew",true),
-  6:()=>bg("sunset")+lion(170,215,1,"happy")+mouse(245,140,.8,"happy")+hearts
-};
-const svgArt=n=>`<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img">${ART[n]()}</svg>`;
-
 // ---------- 상태 ----------
 const store = {
   get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
@@ -319,7 +228,7 @@ const voiceFor=who=>/Lion|Wolf|Villager/.test(who)?{pitch:.85,rate:.85}:/Mouse|F
 function home(){
   speechSynthesis?.cancel();
   app.innerHTML=`<p style="font-size:1.1rem">Hi, ${KID}! 👋 Pick a story!</p><div class="grid">${
-    STORIES.map(s=>`<button class="book" data-id="${s.id}"><div class="cover">${s.cover}</div><b>${s.title}</b><small>${s.ko}</small>${finished[s.id]?'<div class="done">✅ Done!</div>':''}</button>`).join("")
+    STORIES.map(s=>`<button class="book" data-id="${s.id}"><div class="cover"><img src="images/${s.id}/scene${s.scenes.length}.webp" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px" onerror="this.replaceWith('${s.cover}')"></div><b>${s.title}</b><small>${s.ko}</small>${finished[s.id]?'<div class="done">✅ Done!</div>':''}</button>`).join("")
   }</div>
   <div style="margin-top:28px;color:var(--soft);font-size:.95rem">🗣️ 읽어주는 목소리 (부모용)<br>
     <select id="voiceSel" style="font:inherit;padding:8px;border-radius:10px;margin-top:6px;max-width:100%"></select>
@@ -339,7 +248,7 @@ function read(id,i){
   <div class="top"><button class="btn" id="home">🏠</button><b style="flex:1">${s.title}</b>
     <button class="btn toggle" id="ko">${showKo?"🇰🇷 ON":"🇰🇷 OFF"}</button></div>
   <div class="scene">
-    <div class="art pop ${sc.svg?"ill":""}">${sc.svg?svgArt(sc.svg):sc.art}</div>
+    <div class="art pop ill"><img src="images/${s.id}/scene${i+1}.webp" alt="" decoding="async" onerror="this.parentNode.classList.remove('ill');this.parentNode.textContent=${JSON.stringify(sc.art).replace(/"/g,"&quot;")}"></div>
     <div class="text">${words.map(w=>`<span data-w="${w.replace(/"/g,"&quot;")}">${w}</span>`).join(" ")}</div>
     <div class="ko">${showKo?sc.ko:""}</div>
     <div class="row">
@@ -385,6 +294,7 @@ function read(id,i){
       else{b.classList.add("wrong");speak(`Hmm, not ${o[1]}. Try again!`)}
     });
   };
+  if(s.scenes[i+1])new Image().src=`images/${s.id}/scene${i+2}.webp`;
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
