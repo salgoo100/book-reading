@@ -21,6 +21,7 @@ const ONLY = args.filter(a => !a.startsWith("--"));
 // index.html 안의 STORIES, KID를 그대로 읽어 온다 (데이터를 한 곳에서만 관리)
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 const KID = html.match(/const KID = "([^"]+)"/)[1];
+const KID_SAY = html.match(/const KID_SAY = "([^"]+)"/)[1];
 const storiesSrc = html.slice(html.indexOf("const STORIES = ["), html.indexOf("\n];", html.indexOf("const STORIES = [")) + 3);
 const STORIES = new Function("KID", storiesSrc.replace("const STORIES =", "return"))(KID);
 
@@ -90,7 +91,7 @@ for (const j of todo) {
   const res = await fetch("https://api.openai.com/v1/audio/speech", {
     method: "POST",
     headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ model: MODEL, voice, input: j.text, response_format: "mp3",
+    body: JSON.stringify({ model: MODEL, voice, input: j.text.replaceAll(KID, KID_SAY), response_format: "mp3",
       instructions: `${BASE}\n${persona}\n${j.context}` }),
   });
   if (!res.ok) {

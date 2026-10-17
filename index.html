@@ -60,6 +60,7 @@ main{max-width:900px;margin:0 auto;padding:0 16px 40px}
 
 <script>
 const KID = "Tae-ri";
+const KID_SAY = "Terry";  // 영어 음성이 "태리"에 가장 가깝게 읽는 철자 (화면에는 KID가 보임)
 
 // 모든 이야기는 퍼블릭 도메인 원작(이솝우화, 영국 민담, 페로 동화)을 쉬운 영어로 새로 쓴 것
 const STORIES = [
@@ -244,7 +245,7 @@ function speakParts(parts,{spans=null,done=null,slow=false,full=""}={}){
     spans.forEach(sp=>{const i=full.indexOf(sp.dataset.w,pos);starts.push(i);pos=i+sp.dataset.w.length})}
   parts.forEach((p,k)=>{
     const c=p.voice||CAST[p.role]||CAST.narrator;
-    const u=new SpeechSynthesisUtterance(p.text);
+    const u=new SpeechSynthesisUtterance(p.text.replaceAll(KID,KID_SAY));
     const v=castVoice[c.g]||voice; if(v)u.voice=v;
     u.lang="en-US"; u.pitch=c.pitch; u.rate=c.rate*(slow?.72:1);
     if(spans)u.onboundary=e=>{const at=p.offset+e.charIndex;spans.forEach((sp,i)=>sp.classList.toggle("on",at>=starts[i]&&at<starts[i]+sp.dataset.w.length))};
