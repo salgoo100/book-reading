@@ -282,7 +282,7 @@ let AUDIO={};
 fetch("audio/manifest.json").then(r=>r.ok?r.json():{}).then(m=>AUDIO=m).catch(()=>{});
 const player=new Audio(); let clipId=0;
 // 미리 만든 음성의 재생 속도 (음높이는 유지). 기본은 조금 빠르게, Slow 버튼은 천천히
-const AUDIO_RATE={normal:1.2,slow:.8};
+const AUDIO_RATE={normal:1.8,slow:1.2};
 function stopAll(){clipId++;player.pause();player.onended=null;if("speechSynthesis" in window)speechSynthesis.cancel()}
 const hasAudio=keys=>keys.length&&keys.every(k=>AUDIO[k]);
 // clips: [{key, offset, len}] 를 이어서 재생. offset/len은 단어 하이라이트용
