@@ -66,8 +66,10 @@ const add = (key, text, role, context) => jobs.push({ key, text, role, context }
 add("common/great", `Great job, ${KID}!`, "narrator", "Praise the child warmly and excitedly.");
 for (const s of STORIES) {
   if (ONLY.length && !ONLY.includes(s.id)) continue;
-  s.scenes.forEach((sc, i) => {
-    const K = `${s.id}/s${i + 1}`;
+  // Level 1은 scenes, Level 2·3은 levels[n]. 키는 index.html과 같은 규칙
+  const lvScenes = [[1, s.scenes], ...Object.entries(s.levels || {}).map(([lv, sc]) => [+lv, sc])];
+  for (const [lv, scenes] of lvScenes) scenes.forEach((sc, i) => {
+    const K = lv === 1 ? `${s.id}/s${i + 1}` : `${s.id}/L${lv}/s${i + 1}`;
     sceneParts(sc).forEach((p, j) => add(`${K}-p${j + 1}`, p.text, p.role, `Story: ${s.title}. Full line of this page: ${sc.text}`));
     if (sc.why) add(`${K}-why`, sc.why.text, roleOf(sc.why.who), `Story: ${s.title}. The character explains to the child why they did this.`);
     if (sc.ask) add(`${K}-ask`, sc.ask.q, "narrator", "Ask the child this question in a curious, inviting way.");

@@ -161,6 +161,54 @@ const STORIES = [
 },
 {
   id:"cinderella", title:"Cinderella", ko:"신데렐라", cover:"👗👠",
+  // 단계별 원고. pic은 images/cinderella/<pic>.webp (기존 그림 재활용 + 새 그림)
+  levels:{
+  2:[
+    {pic:"scene1", art:"👧🧹", text:"Cinderella lived with her stepmother and two stepsisters. She cleaned the house all day long.", ko:"신데렐라는 새엄마, 두 언니와 함께 살았어요. 하루 종일 집을 청소했어요.",
+     why:{who:"👧 Cinderella", text:"I work hard every day. It is not easy, but I try to smile.", ko:"매일 열심히 일해요. 쉽진 않지만 웃으려고 노력해요."}},
+    {pic:"scene2", art:"✉️👑💃", who:"stepsister,stepsister", text:"One day, a letter came from the castle. \"The prince is having a ball!\" The stepsisters laughed. \"You can't come, Cinderella!\"", ko:"어느 날 성에서 편지가 왔어요. \"왕자님이 무도회를 연대!\" 언니들이 웃었어요. \"넌 못 와, 신데렐라!\"",
+     quiz:{q:"How does Cinderella feel?", opts:[["😢","sad",1],["😄","happy",0],["😴","sleepy",0]]}},
+    {pic:"scene3", art:"🧚‍♀️✨", who:"fairy", text:"Cinderella cried in the garden. Suddenly, a fairy godmother appeared. \"Don't cry, my dear.\"", ko:"신데렐라는 정원에서 울었어요. 그때 요정 대모가 나타났어요. \"울지 마렴, 얘야.\"",
+     ask:{q:`${KID}, who can help Cinderella?`, ko:"누가 신데렐라를 도와줄 수 있을까?"}},
+    {pic:"scene4", art:"🎃➡️🚗✨", who:"fairy", text:"She waved her wand. The pumpkin turned into a golden coach! \"Be home before midnight!\"", ko:"요정이 지팡이를 흔들었어요. 호박이 황금 마차로 변했어요! \"자정 전에 돌아오렴!\"",
+     why:{who:"🧚‍♀️ Fairy", text:"My magic is strong, but it does not last forever. At midnight, it ends!", ko:"내 마법은 강하지만 영원하진 않아. 자정이 되면 끝나!"}},
+    {pic:"dance", art:"🤴💃🎶", who:"prince", text:"At the ball, the prince saw Cinderella. \"Will you dance with me?\" They danced all night.", ko:"무도회에서 왕자님이 신데렐라를 봤어요. \"저와 춤추시겠어요?\" 둘은 밤새 춤을 췄어요.",
+     quiz:{q:"What do they do at the ball?", opts:[["💃","dance",1],["😴","sleep",0],["🍳","cook",0]]}},
+    {pic:"scene5", art:"🕛🏃‍♀️👠", text:"Dong! Dong! It was midnight! Cinderella ran away and lost one glass slipper.", ko:"땡! 땡! 자정이 됐어요! 신데렐라는 도망치다 유리구두 한 짝을 잃어버렸어요.",
+     ask:{q:"Let's count the bells! Dong, dong... How many?", ko:"종소리를 같이 세어 볼까? 몇 번 울릴까?"}},
+    {pic:"slipper-try", art:"👠🦶😣", text:"The prince went from house to house. The stepsisters tried the slipper, but it was too small!", ko:"왕자님은 집집마다 찾아갔어요. 언니들이 구두를 신어 봤지만 너무 작았어요!",
+     why:{who:"🤴 Prince", text:"I must find the girl from the ball. This little slipper will help me!", ko:"무도회의 그 아가씨를 꼭 찾아야 해. 이 작은 구두가 도와줄 거야!"},
+     quiz:{q:"Does the slipper fit the stepsisters?", opts:[["👍","yes",0],["👎","no",1]]}},
+    {pic:"scene6", art:"🤴👠👧💖", who:"prince", text:"The slipper fit Cinderella perfectly. \"It's you!\" They lived happily ever after.", ko:"구두가 신데렐라에게 꼭 맞았어요. \"당신이군요!\" 둘은 행복하게 살았답니다.",
+     ask:{q:`${KID}, how does Cinderella feel now?`, ko:"지금 신데렐라 기분은 어떨까?"}}
+  ],
+  3:[
+    {pic:"scene1", art:"👧🧹", text:"Long ago, there lived a kind girl named Cinderella. Every day she swept, cooked, and washed, but she always stayed gentle.", ko:"옛날 옛날에 신데렐라라는 착한 소녀가 살았어요. 매일 쓸고, 요리하고, 빨래했지만 언제나 상냥했어요.",
+     why:{who:"👧 Cinderella", text:"My stepsisters are not kind to me. But being kind makes my heart feel warm.", ko:"언니들은 나에게 친절하지 않아요. 하지만 친절하면 내 마음이 따뜻해져요."}},
+    {pic:"scene2", art:"✉️👑💃", who:"cinderella,stepsister", text:"One morning, an invitation arrived from the palace. \"May I go too?\" Cinderella asked. Her stepsisters laughed. \"You? In those rags?\"", ko:"어느 날 아침, 궁전에서 초대장이 왔어요. \"저도 가도 돼요?\" 신데렐라가 물었어요. 언니들이 웃었어요. \"너? 그 누더기를 입고?\"",
+     ask:{q:`${KID}, what is an invitation? Have you ever gotten one?`, ko:"초대장(invitation)이 뭘까? 태리도 받아 본 적 있어?"}},
+    {pic:"help-sisters", art:"👧🎀👗👗", text:"On the night of the ball, Cinderella helped her stepsisters get ready. Then she watched their carriage drive away.", ko:"무도회 날 밤, 신데렐라는 언니들의 준비를 도와줬어요. 그리고 마차가 떠나는 것을 바라봤어요.",
+     why:{who:"👧 Cinderella", text:"I wanted to go too. But I still helped them, because that is what a kind person does.", ko:"나도 가고 싶었어요. 그래도 도와줬어요. 착한 사람은 그렇게 하니까요."},
+     quiz:{q:"How does Cinderella feel now?", opts:[["😢","lonely",1],["🥳","excited",0]]}},
+    {pic:"scene3", art:"🧚‍♀️✨", who:"fairy", text:"Alone in the garden, she began to cry. Suddenly, the air sparkled. \"I am your fairy godmother. You shall go to the ball!\"", ko:"혼자 정원에서 울기 시작했어요. 그때 공기가 반짝였어요. \"나는 너의 요정 대모란다. 무도회에 가게 해 줄게!\"",
+     ask:{q:"What does sparkle look like? Show me with your hands!", ko:"반짝반짝(sparkle)은 어떤 모습일까? 손으로 보여줘!"}},
+    {pic:"scene4", art:"🎃➡️🚗✨", who:"fairy", text:"With a wave of her wand, a pumpkin became a shining coach. \"Remember, the magic ends at midnight!\"", ko:"지팡이를 한 번 흔들자 호박이 반짝이는 마차가 되었어요. \"기억하렴, 마법은 자정에 끝나!\"",
+     quiz:{q:"What did the pumpkin become?", opts:[["🚗","a coach",1],["🏠","a house",0],["🍰","a cake",0]]}},
+    {pic:"dance", art:"🤴💃🎶", who:"stepsister", text:"When Cinderella entered the ballroom, everyone whispered, \"Who is that lovely girl?\" The prince bowed and asked her to dance.", ko:"신데렐라가 무도회장에 들어서자 모두 속삭였어요. \"저 아름다운 아가씨는 누구지?\" 왕자님이 인사하고 춤을 청했어요.",
+     why:{who:"🤴 Prince", text:"She was so kind and gentle. I wanted to talk with her all night!", ko:"그녀는 정말 다정하고 상냥했어요. 밤새 이야기하고 싶었어요!"},
+     ask:{q:`${KID}, do you like to dance? Let's dance like Cinderella!`, ko:"춤추는 거 좋아해? 신데렐라처럼 춤춰 볼까?"}},
+    {pic:"scene5", art:"🕛🏃‍♀️👠", who:"cinderella", text:"They danced until the clock struck twelve. \"Oh no, I must go!\" She ran so fast that one glass slipper fell off.", ko:"시계가 열두 시를 칠 때까지 춤을 췄어요. \"이런, 가야 해요!\" 너무 빨리 달려서 유리구두 한 짝이 벗겨졌어요.",
+     why:{who:"👧 Cinderella", text:"The magic was ending! I didn't want the prince to see my old grey dress.", ko:"마법이 끝나고 있었어요! 왕자님이 내 낡은 회색 옷을 보는 게 싫었어요."},
+     quiz:{q:"What fell off?", opts:[["👠","a slipper",1],["👑","a crown",0],["🧤","a glove",0]]}},
+    {pic:"prince-promise", art:"🤴👠✨", who:"prince", text:"The prince picked up the tiny slipper. \"I will find the girl who wore this,\" he promised.", ko:"왕자님이 작은 구두를 주웠어요. \"이 구두의 주인을 꼭 찾겠어.\" 왕자님이 약속했어요.",
+     ask:{q:`${KID}, what is a promise? Can you make one?`, ko:"약속(promise)이 뭘까? 태리도 약속 하나 해 볼래?"}},
+    {pic:"slipper-try", art:"👠🦶😣", text:"He visited every house in the kingdom. The stepsisters pushed and squeezed, but their feet were far too big!", ko:"왕자님은 왕국의 모든 집을 찾아갔어요. 언니들은 밀고 쑤셔 넣었지만 발이 너무 컸어요!",
+     why:{who:"👩 Stepsister", text:"Push! Squeeze! Ouch! Why won't my foot go in?", ko:"밀어! 꽉! 아야! 왜 발이 안 들어가지?"},
+     quiz:{q:"Why didn't the slipper fit?", opts:[["🦶","big feet",1],["🌧️","rain",0]]}},
+    {pic:"scene6", art:"🤴👠👧💖", who:"cinderella,prince", text:"\"May I try?\" Cinderella asked quietly. The slipper fit perfectly! \"It was you all along.\" And they lived happily ever after.", ko:"\"제가 신어 봐도 될까요?\" 신데렐라가 조용히 물었어요. 구두가 꼭 맞았어요! \"처음부터 당신이었군요.\" 그리고 둘은 행복하게 살았답니다.",
+     why:{who:"👧 Cinderella", text:"I stayed kind, even on hard days. And kindness found its way back to me.", ko:"힘든 날에도 친절했더니, 그 친절이 나에게 돌아왔어요."},
+     ask:{q:`${KID}, how can you be kind today?`, ko:"오늘 태리는 어떻게 친절할 수 있을까?"}}
+  ]},
   moral:"Be kind, and good things come!", moralKo:"착한 마음은 좋은 일을 불러와요!",
   scenes:[
     {art:"👧🧹", text:"Cinderella cleans and cleans. Her stepsisters are not nice.", ko:"신데렐라는 청소만 해요. 언니들은 못되게 굴어요.",
@@ -316,31 +364,48 @@ function playClips(clips,{spans=null,done=null,slow=false,full=""}={}){
 }
 
 // ---------- 화면 ----------
+// ---------- 단계 (Level 1 = scenes, 2·3 = levels[n]) ----------
+const LV={1:["🌱","Level 1","Easy"],2:["🌿","Level 2","Medium"],3:["🌳","Level 3","Challenge"]};
+const scenesOf=(s,lv)=>lv===1?s.scenes:s.levels[lv];
+const picOf=(sc,i)=>sc.pic||`scene${i+1}`;
+const doneKey=(s,lv)=>lv===1?s.id:`${s.id}@${lv}`;
+function levels(id){
+  stopAuto(); stopAll();
+  const s=STORIES.find(x=>x.id===id), lvs=[1,...Object.keys(s.levels).map(Number)];
+  app.innerHTML=`<div class="top"><button class="btn" id="home">🏠</button><b style="flex:1">${s.title}</b></div>
+  <p style="font-size:1.1rem">Pick your level, ${KID}! 🚀</p>
+  <div class="grid">${lvs.map(lv=>`<button class="book" data-lv="${lv}"><div class="cover">${LV[lv][0]}</div><b>${LV[lv][1]}</b>
+    <small>${scenesOf(s,lv).length} pages · ${LV[lv][2]}</small>${finished[doneKey(s,lv)]?'<div class="done">✅ Done!</div>':''}</button>`).join("")}</div>`;
+  document.getElementById("home").onclick=home;
+  app.querySelectorAll(".book").forEach(b=>b.onclick=()=>read(id,0,+b.dataset.lv));
+}
+
 function home(){
   stopAuto(); stopAll();
   app.innerHTML=`<p style="font-size:1.1rem">Hi, ${KID}! 👋 Pick a story!</p><div class="grid">${
-    STORIES.map(s=>`<button class="book" data-id="${s.id}"><div class="cover"><img src="images/${s.id}/scene${s.scenes.length}.webp" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px" onerror="this.replaceWith('${s.cover}')"></div><b>${s.title}</b><small>${s.ko}</small>${finished[s.id]?'<div class="done">✅ Done!</div>':''}</button>`).join("")
+    STORIES.map(s=>`<button class="book" data-id="${s.id}"><div class="cover"><img src="images/${s.id}/scene${s.scenes.length}.webp" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px" onerror="this.replaceWith('${s.cover}')"></div><b>${s.title}</b><small>${s.ko}</small>${s.levels?`<small style="display:block;margin-top:4px">${[1,...Object.keys(s.levels)].map(l=>LV[l][0]).join(" ")}</small>`:""}${finished[s.id]?'<div class="done">✅ Done!</div>':''}</button>`).join("")
   }</div>
   <div style="margin-top:28px;color:var(--soft);font-size:.95rem">🗣️ 나레이터 목소리 (부모용) · 캐릭터 목소리는 자동 배정<br>
     <select id="voiceSel" style="font:inherit;padding:8px;border-radius:10px;margin-top:6px;max-width:100%"></select>
     <button class="btn" id="test" style="margin-left:6px;padding:8px 12px">▶ 들어보기</button></div>`;
-  app.querySelectorAll(".book").forEach(b=>b.onclick=()=>read(b.dataset.id,0));
+  app.querySelectorAll(".book").forEach(b=>b.onclick=()=>STORIES.find(x=>x.id===b.dataset.id).levels?levels(b.dataset.id):read(b.dataset.id,0));
   renderVoicePicker();
   document.getElementById("voiceSel").onchange=e=>{voice=voices.find(v=>v.name===e.target.value)||voice;store.set("voice",voice?.name);speak(`Hi ${KID}! Let's read a story together.`)};
   document.getElementById("test").onclick=()=>speak(`Hi ${KID}! Once upon a time, a big lion was sleeping under a tree.`);
 }
 
-function read(id,i){
+function read(id,i,lv=1){
   const s=STORIES.find(x=>x.id===id);
-  if(i>=s.scenes.length)return end(s);
-  const sc=s.scenes[i];
+  const scs=scenesOf(s,lv);
+  if(i>=scs.length)return end(s,lv);
+  const sc=scs[i];
   const words=sc.text.split(/\s+/);
   app.innerHTML=`
-  <div class="top"><button class="btn" id="home">🏠</button><b style="flex:1">${s.title}</b>
+  <div class="top"><button class="btn" id="home">🏠</button><b style="flex:1">${s.title}${s.levels?` ${LV[lv][0]}`:""}</b>
     <button class="btn ${auto?"":"main"}" id="auto">${auto?"⏸ Stop":"▶ Read All"}</button>
     <button class="btn toggle" id="ko">${showKo?"🇰🇷 ON":"🇰🇷 OFF"}</button></div>
   <div class="scene">
-    <div class="art pop ill"><img src="images/${s.id}/scene${i+1}.webp" alt="" decoding="async" onerror="this.parentNode.classList.remove('ill');this.parentNode.textContent=${JSON.stringify(sc.art).replace(/"/g,"&quot;")}"></div>
+    <div class="art pop ill"><img src="images/${s.id}/${picOf(sc,i)}.webp" alt="" decoding="async" onerror="this.parentNode.classList.remove('ill');this.parentNode.textContent=${JSON.stringify(sc.art).replace(/"/g,"&quot;")}"></div>
     <div class="text">${words.map(w=>`<span data-w="${w.replace(/"/g,"&quot;")}">${w}</span>`).join(" ")}</div>
     <div class="ko">${showKo?sc.ko:""}</div>
     <div class="row">
@@ -354,28 +419,28 @@ function read(id,i){
   </div>
   <div class="nav">
     <button class="btn" id="prev" ${i===0?"disabled style=opacity:.4":""}>⬅️ Back</button>
-    <span class="dots">${s.scenes.map((_,j)=>j===i?"●":"○").join(" ")}</span>
+    <span class="dots">${scs.map((_,j)=>j===i?"●":"○").join(" ")}</span>
     <button class="btn main" id="next">Next ➡️</button>
   </div>`;
   const spans=[...app.querySelectorAll(".text span")];
   const panel=document.getElementById("panel");
   const $=id=>document.getElementById(id);
-  const K=`${s.id}/s${i+1}`;
+  const K=lv===1?`${s.id}/s${i+1}`:`${s.id}/L${lv}/s${i+1}`;
   const pause=()=>{if(auto){stopAuto();$("auto").textContent="▶ Read All";$("auto").classList.add("main")}};
   $("home").onclick=home;
-  $("auto").onclick=()=>{ if(auto){stopAuto();stopAll();read(id,i)} else {auto=true;read(id,i)} };
+  $("auto").onclick=()=>{ if(auto){stopAuto();stopAll();read(id,i,lv)} else {auto=true;read(id,i,lv)} };
   if(auto){
     const my=++playId;
     setTimeout(()=>{ if(my!==playId)return;
-      readScene(sc,{key:K,spans,done:()=>{ if(my===playId) setTimeout(()=>{ if(my===playId) read(id,i+1) },1800) }});
+      readScene(sc,{key:K,spans,done:()=>{ if(my===playId) setTimeout(()=>{ if(my===playId) read(id,i+1,lv) },1800) }});
     },700);
   }
-  $("ko").onclick=()=>{showKo=!showKo;store.set("showKo",showKo);read(id,i)};
+  $("ko").onclick=()=>{showKo=!showKo;store.set("showKo",showKo);read(id,i,lv)};
   $("read").onclick=()=>{stopAuto();readScene(sc,{key:K,spans})};
   $("slow").onclick=()=>{stopAuto();readScene(sc,{key:K,spans,slow:true})};
   spans.forEach(sp=>sp.onclick=()=>speak(sp.dataset.w.replace(/[^\w']/g,""),{rate:.7}));
-  $("prev").onclick=()=>{if(i>0){stopAuto();stopAll();read(id,i-1)}};
-  $("next").onclick=()=>{stopAuto();stopAll();read(id,i+1)};
+  $("prev").onclick=()=>{if(i>0){stopAuto();stopAll();read(id,i-1,lv)}};
+  $("next").onclick=()=>{stopAuto();stopAll();read(id,i+1,lv)};
   const open=html=>{panel.innerHTML=html;panel.classList.add("show");panel.classList.remove("pop");void panel.offsetWidth;panel.classList.add("pop")};
   if(sc.why)$("why").onclick=()=>{pause();
     open(`<h3>${sc.why.who} says:</h3><p>"${sc.why.text}"</p>${showKo?`<p class="k">${sc.why.ko}</p>`:""}<div class="row"><button class="btn" id="again">🔊 Again</button></div>`);
@@ -395,20 +460,22 @@ function read(id,i){
       else{b.classList.add("wrong");speak(`Hmm, not ${o[1]}. Try again!`,{key:`${K}-quiz${b.dataset.k}`})}
     });
   };
-  if(s.scenes[i+1])new Image().src=`images/${s.id}/scene${i+2}.webp`;
+  if(scs[i+1])new Image().src=`images/${s.id}/${picOf(scs[i+1],i+1)}.webp`;
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function end(s){
-  if(!finished[s.id]){finished[s.id]=true;store.set("finished",finished);addStar(3)}
+function end(s,lv=1){
+  const dk=doneKey(s,lv), up=s.levels&&s.levels[lv+1]?lv+1:0;
+  if(!finished[dk]){finished[dk]=true;store.set("finished",finished);addStar(3)}
   app.innerHTML=`<div class="scene end">
     <div class="big pop">🎉</div><h2>The End!</h2>
     <p style="font-size:1.4rem">💡 ${s.moral}</p><p class="k" style="color:var(--soft)">${s.moralKo}</p>
     <p>Great reading, ${KID}! ⭐⭐⭐</p>
-    <div class="row"><button class="btn main" id="moral">🔊 Say it!</button><button class="btn" id="again">🔁 Again</button><button class="btn" id="home">🏠 Home</button></div></div>`;
+    <div class="row"><button class="btn main" id="moral">🔊 Say it!</button>${up?`<button class="btn main" id="up">${LV[up][0]} Try ${LV[up][1]}!</button>`:""}<button class="btn" id="again">🔁 Again</button><button class="btn" id="home">🏠 Home</button></div></div>`;
   stopAuto(); speak(`The end! ${s.moral} Great reading, ${KID}!`,{key:`${s.id}/end`});
   document.getElementById("moral").onclick=()=>speak(s.moral,{key:`${s.id}/moral`});
-  document.getElementById("again").onclick=()=>read(s.id,0);
+  document.getElementById("again").onclick=()=>read(s.id,0,lv);
+  if(up)document.getElementById("up").onclick=()=>read(s.id,0,up);
   document.getElementById("home").onclick=home;
 }
 
