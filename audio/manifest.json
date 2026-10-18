@@ -154,5 +154,275 @@
   "h": "98fb0429c0",
   "s": 0.28,
   "e": 3.1
+ },
+ "race/s1-p1": {
+  "f": "race/s1-p1.wav",
+  "h": "3e3bd2ec5d",
+  "s": 0.34,
+  "e": 2.12
+ },
+ "race/s1-p2": {
+  "f": "race/s1-p2.wav",
+  "h": "823dc2e479",
+  "s": 0.18,
+  "e": 1.12
+ },
+ "race/s1-p3": {
+  "f": "race/s1-p3.wav",
+  "h": "dc14db57df",
+  "s": 0.22,
+  "e": 2
+ },
+ "race/s1-why": {
+  "f": "race/s1-why.wav",
+  "h": "9604cad2f8",
+  "s": 0.16,
+  "e": 5.42
+ },
+ "race/s2-p1": {
+  "f": "race/s2-p1.wav",
+  "h": "6683fa95c1",
+  "s": 0.22,
+  "e": 3.36
+ },
+ "race/s2-p2": {
+  "f": "race/s2-p2.wav",
+  "h": "bfae43329f",
+  "s": 0.22,
+  "e": 1.4
+ },
+ "race/s2-why": {
+  "f": "race/s2-why.wav",
+  "h": "1aed8ce544",
+  "s": 0.18,
+  "e": 8.34
+ },
+ "race/s2-ask": {
+  "f": "race/s2-ask.wav",
+  "h": "26f5cf6c3a",
+  "s": 0.32,
+  "e": 4.24
+ },
+ "race/s3-p1": {
+  "f": "race/s3-p1.wav",
+  "h": "da9ca7fcb5",
+  "s": 0.3,
+  "e": 6.3
+ },
+ "race/s4-p1": {
+  "f": "race/s4-p1.wav",
+  "h": "6786544321",
+  "s": 0.2,
+  "e": 4.46
+ },
+ "race/s4-p2": {
+  "f": "race/s4-p2.wav",
+  "h": "9abc321c82",
+  "s": 0.1,
+  "e": 1.3
+ },
+ "race/s4-quiz": {
+  "f": "race/s4-quiz.wav",
+  "h": "91af3e971b",
+  "s": 0.2,
+  "e": 3.64
+ },
+ "race/s4-quiz0": {
+  "f": "race/s4-quiz0.wav",
+  "h": "324b59a141",
+  "s": 0.26,
+  "e": 3.44
+ },
+ "race/s4-quiz1": {
+  "f": "race/s4-quiz1.wav",
+  "h": "3c35de53b7",
+  "s": 0.18,
+  "e": 3.04
+ },
+ "race/s5-p1": {
+  "f": "race/s5-p1.wav",
+  "h": "071d4bb65d",
+  "s": 0.24,
+  "e": 5.82
+ },
+ "race/s5-ask": {
+  "f": "race/s5-ask.wav",
+  "h": "85a6e612f5",
+  "s": 0.26,
+  "e": 5.02
+ },
+ "race/s6-p1": {
+  "f": "race/s6-p1.wav",
+  "h": "45816f36ca",
+  "s": 0.32,
+  "e": 3.9
+ },
+ "race/s6-p2": {
+  "f": "race/s6-p2.wav",
+  "h": "3264cc8b8d",
+  "s": 0.22,
+  "e": 0.8
+ },
+ "race/s6-quiz": {
+  "f": "race/s6-quiz.wav",
+  "h": "68546bfc6f",
+  "s": 0.26,
+  "e": 1.84
+ },
+ "race/s6-quiz0": {
+  "f": "race/s6-quiz0.wav",
+  "h": "ebf0bbc3bc",
+  "s": 0.32,
+  "e": 3.74
+ },
+ "race/s6-quiz1": {
+  "f": "race/s6-quiz1.wav",
+  "h": "255a2c0180",
+  "s": 0.4,
+  "e": 3.72
+ },
+ "race/end": {
+  "f": "race/end.wav",
+  "h": "0540da3210",
+  "s": 0.28,
+  "e": 7.1
+ },
+ "race/moral": {
+  "f": "race/moral.wav",
+  "h": "801da370c1",
+  "s": 0.2,
+  "e": 3.28
+ },
+ "ant/s1-p1": {
+  "f": "ant/s1-p1.wav",
+  "h": "8e13b13789",
+  "s": 0.28,
+  "e": 5.72
+ },
+ "ant/s1-why": {
+  "f": "ant/s1-why.wav",
+  "h": "4f90084f84",
+  "s": 0.24,
+  "e": 5.98
+ },
+ "ant/s2-p1": {
+  "f": "ant/s2-p1.wav",
+  "h": "3ce34fb63a",
+  "s": 0.32,
+  "e": 4.16
+ },
+ "ant/s2-why": {
+  "f": "ant/s2-why.wav",
+  "h": "15d97f36d1",
+  "s": 0.26,
+  "e": 4.5
+ },
+ "ant/s2-ask": {
+  "f": "ant/s2-ask.wav",
+  "h": "f13de22031",
+  "s": 0.26,
+  "e": 2.48
+ },
+ "ant/s3-p1": {
+  "f": "ant/s3-p1.wav",
+  "h": "747569841a",
+  "s": 0.32,
+  "e": 7.06
+ },
+ "ant/s3-quiz": {
+  "f": "ant/s3-quiz.wav",
+  "h": "0cdecfa9bf",
+  "s": 0.2,
+  "e": 2.24
+ },
+ "ant/s3-quiz0": {
+  "f": "ant/s3-quiz0.wav",
+  "h": "f298b86254",
+  "s": 0.32,
+  "e": 3.3
+ },
+ "ant/s3-quiz1": {
+  "f": "ant/s3-quiz1.wav",
+  "h": "b679a56a52",
+  "s": 0.32,
+  "e": 2.92
+ },
+ "ant/s3-quiz2": {
+  "f": "ant/s3-quiz2.wav",
+  "h": "78cfca5760",
+  "s": 0.22,
+  "e": 2.98
+ },
+ "ant/s4-p1": {
+  "f": "ant/s4-p1.wav",
+  "h": "311d61a68d",
+  "s": 0.32,
+  "e": 1.2
+ },
+ "ant/s4-p2": {
+  "f": "ant/s4-p2.wav",
+  "h": "674a69748b",
+  "s": 0.24,
+  "e": 2.3
+ },
+ "ant/s4-ask": {
+  "f": "ant/s4-ask.wav",
+  "h": "3d85fc1d47",
+  "s": 0.3,
+  "e": 2.66
+ },
+ "ant/s5-p1": {
+  "f": "ant/s5-p1.wav",
+  "h": "fcd948b55c",
+  "s": 0.34,
+  "e": 2.6
+ },
+ "ant/s5-p2": {
+  "f": "ant/s5-p2.wav",
+  "h": "8875eba3ba",
+  "s": 0.2,
+  "e": 2.78
+ },
+ "ant/s5-why": {
+  "f": "ant/s5-why.wav",
+  "h": "3510b3660f",
+  "s": 0.36,
+  "e": 4.38
+ },
+ "ant/end": {
+  "f": "ant/end.wav",
+  "h": "326668369b",
+  "s": 0.36,
+  "e": 6.12
+ },
+ "ant/moral": {
+  "f": "ant/moral.wav",
+  "h": "38af4427d0",
+  "s": 0.22,
+  "e": 2.48
+ },
+ "wolf/s1-p1": {
+  "f": "wolf/s1-p1.wav",
+  "h": "7228be8e03",
+  "s": 0.24,
+  "e": 4.98
+ },
+ "wolf/s1-why": {
+  "f": "wolf/s1-why.wav",
+  "h": "6df57b5aac",
+  "s": 0.38,
+  "e": 5.3
+ },
+ "wolf/s2-p1": {
+  "f": "wolf/s2-p1.wav",
+  "h": "f1b71cb383",
+  "s": 0.28,
+  "e": 1.6
+ },
+ "wolf/s2-p2": {
+  "f": "wolf/s2-p2.wav",
+  "h": "92791f0060",
+  "s": 0.34,
+  "e": 3.36
  }
 }
