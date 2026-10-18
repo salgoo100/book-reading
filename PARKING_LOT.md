@@ -7,9 +7,21 @@
   - 기존 3편 57개: 양치기 소년 18, 아기 돼지 19, 신데렐라 Level 1 20
   - 신데렐라 Level 2·3 83개
   - `gemini-3.8-flash-tts`는 Tier 1에서 하루 100번까지라 이틀에 나눠 만들어요. 명령은 `node --env-file=.env tools/make_audio.mjs`이고, 이미 만든 클립은 건너뛰어요.
-- **신데렐라 새 그림 4장** (dance, slipper-try, help-sisters, prince-promise)
-  - Codex 지시문: `codex-prompts/cinderella-levels.md`
-  - 끝나면 `python tools/convert_images.py`로 변환한 뒤 배포해요.
+
+## 🎨 Codex 작업 큐 (Level 2·3용 새 그림, 총 25장)
+PowerShell, 프로젝트 폴더에서 한 줄씩 실행해요. 동시에 여러 개를 돌려도 돼요. 이야기마다 폴더가 달라서 겹치지 않아요.
+끝나면 Claude에게 "끝났어"라고 알려주세요. 변환(`python tools/convert_images.py`), 확인, 배포는 Claude가 해요.
+
+| ✔ | 이야기 | 장수 | 명령 |
+|---|---|---|---|
+| ☐ | 신데렐라 | 4 | `Get-Content codex-prompts/cinderella-levels.md -Raw \| codex exec --full-auto -` |
+| ☐ | 사자와 쥐 | 4 | `Get-Content codex-prompts/lion-levels.md -Raw \| codex exec --full-auto -` |
+| ☐ | 토끼와 거북이 | 4 | `Get-Content codex-prompts/race-levels.md -Raw \| codex exec --full-auto -` |
+| ☐ | 개미와 베짱이 | 5 | `Get-Content codex-prompts/ant-levels.md -Raw \| codex exec --full-auto -` |
+| ☐ | 양치기 소년 | 4 | `Get-Content codex-prompts/wolf-levels.md -Raw \| codex exec --full-auto -` |
+| ☐ | 아기 돼지 삼형제 | 4 | `Get-Content codex-prompts/pigs-levels.md -Raw \| codex exec --full-auto -` |
+
+그림이 먼저 나와도 괜찮아요. 신데렐라 말고는 Level 2·3 원고가 아직 앱에 들어가지 않아서, 그림은 원고를 넣을 때 연결돼요.
 
 ## 🎬 영상 모드 (유튜브 업로드용)
 "Read All"을 화면 녹화해서 유튜브에 올리기 위한 전용 화면이에요.
