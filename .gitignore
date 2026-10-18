@@ -1,3 +1,4 @@
 images/_original/
 .claude/
 __pycache__/
+.env
