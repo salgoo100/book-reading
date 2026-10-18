@@ -424,5 +424,47 @@
   "h": "92791f0060",
   "s": 0.34,
   "e": 3.36
+ },
+ "wolf/s2-quiz": {
+  "f": "wolf/s2-quiz.wav",
+  "h": "ceaa8e2e44",
+  "s": 0.34,
+  "e": 2.26
+ },
+ "wolf/s2-quiz0": {
+  "f": "wolf/s2-quiz0.wav",
+  "h": "324b59a141",
+  "s": 0.22,
+  "e": 3.1
+ },
+ "wolf/s2-quiz1": {
+  "f": "wolf/s2-quiz1.wav",
+  "h": "3c35de53b7",
+  "s": 0.24,
+  "e": 2.94
+ },
+ "wolf/s3-p1": {
+  "f": "wolf/s3-p1.wav",
+  "h": "71a0603642",
+  "s": 0.1,
+  "e": 2.12
+ },
+ "wolf/s3-p2": {
+  "f": "wolf/s3-p2.wav",
+  "h": "d7bfec464b",
+  "s": 0.26,
+  "e": 1.94
+ },
+ "wolf/s3-ask": {
+  "f": "wolf/s3-ask.wav",
+  "h": "eeb9d82c6b",
+  "s": 0.36,
+  "e": 3.04
+ },
+ "lion/L2/s1-p1": {
+  "f": "lion/L2/s1-p1.wav",
+  "h": "28a9dcc5b4",
+  "s": 0.32,
+  "e": 6.98
  }
 }
