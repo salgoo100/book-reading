@@ -7,7 +7,7 @@
   - 우선순위: Level 1 나머지 → 각 이야기 Level 2 → Level 3
   - `gemini-3.8-flash-tts`는 Tier 1에서 하루 100번까지라 이틀에 나눠 만들어요. 명령은 `node --env-file=.env tools/make_audio.mjs`이고, 이미 만든 클립은 건너뛰어요.
 
-## 🎨 Codex 작업 큐 (Level 2·3용 새 그림, 총 25장)
+## 🎨 Codex 작업 큐 (Level 2·3용 새 그림 25장, 2026-10-19 모두 완료)
 PowerShell, 프로젝트 폴더에서 한 줄씩 실행해요. 동시에 여러 개를 돌려도 돼요. 이야기마다 폴더가 달라서 겹치지 않아요.
 끝나면 Claude에게 "끝났어"라고 알려주세요. 변환(`python tools/convert_images.py`), 확인, 배포는 Claude가 해요.
 
@@ -16,7 +16,7 @@ PowerShell, 프로젝트 폴더에서 한 줄씩 실행해요. 동시에 여러 
 | ✅ | 신데렐라 | 4 | `Get-Content codex-prompts/cinderella-levels.md -Raw \| codex exec --full-auto -` |
 | ✅ | 사자와 쥐 | 4 | `Get-Content codex-prompts/lion-levels.md -Raw \| codex exec --full-auto -` |
 | ✅ | 토끼와 거북이 | 4 | `Get-Content codex-prompts/race-levels.md -Raw \| codex exec --full-auto -` |
-| ⏳ | 개미와 베짱이 (베짱이 다리 다시 그리는 중) | 5 | `Get-Content codex-prompts/ant-levels.md -Raw \| codex exec --full-auto -` |
+| ✅ | 개미와 베짱이 | 5 | `Get-Content codex-prompts/ant-levels.md -Raw \| codex exec --full-auto -` |
 | ✅ | 양치기 소년 | 4 | `Get-Content codex-prompts/wolf-levels.md -Raw \| codex exec --full-auto -` |
 | ✅ | 아기 돼지 삼형제 | 4 | `Get-Content codex-prompts/pigs-levels.md -Raw \| codex exec --full-auto -` |
 
