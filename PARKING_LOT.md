@@ -14,7 +14,7 @@ PowerShell, 프로젝트 폴더에서 한 줄씩 실행해요. 동시에 여러 
 
 | ✔ | 이야기 | 장수 | 명령 |
 |---|---|---|---|
-| ☐ | 신데렐라 | 4 | `Get-Content codex-prompts/cinderella-levels.md -Raw \| codex exec --full-auto -` |
+| ✅ | 신데렐라 | 4 | `Get-Content codex-prompts/cinderella-levels.md -Raw \| codex exec --full-auto -` |
 | ☐ | 사자와 쥐 | 4 | `Get-Content codex-prompts/lion-levels.md -Raw \| codex exec --full-auto -` |
 | ☐ | 토끼와 거북이 | 4 | `Get-Content codex-prompts/race-levels.md -Raw \| codex exec --full-auto -` |
 | ☐ | 개미와 베짱이 | 5 | `Get-Content codex-prompts/ant-levels.md -Raw \| codex exec --full-auto -` |
