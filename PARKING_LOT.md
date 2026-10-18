@@ -22,16 +22,16 @@ PowerShell, 프로젝트 폴더에서 한 줄씩 실행해요. 동시에 여러 
 
 그림이 먼저 나와도 괜찮아요. 신데렐라 말고는 Level 2·3 원고가 아직 앱에 들어가지 않아서, 그림은 원고를 넣을 때 연결돼요.
 
-## 🎨 Codex 작업 큐: 새 이야기 4편 (각 6장, 총 24장)
+## 🎨 Codex 작업 큐: 새 이야기 4편 (각 6장, 총 24장, 2026-10-19 모두 완료)
 원고와 데이터는 앱에 들어가 있어요. 그림이 들어오기 전까지는 이모지로 보여요.
 PowerShell, 프로젝트 폴더에서 실행해요. 동시에 돌려도 돼요. 끝나면 Claude에게 알려주세요. 변환, 확인, 배포는 Claude가 해요.
 
 | ✔ | 이야기 | 명령 |
 |---|---|---|
-| ☐ | 골디락스와 곰 세 마리 | `Get-Content codex-prompts/goldilocks.md -Raw \| codex exec --full-auto -` |
-| ☐ | 진저브레드맨 | `Get-Content codex-prompts/gingerbread.md -Raw \| codex exec --full-auto -` |
-| ☐ | 금도끼 은도끼 | `Get-Content codex-prompts/goldenaxe.md -Raw \| codex exec --full-auto -` |
-| ☐ | 흥부와 놀부 | `Get-Content codex-prompts/heungbu.md -Raw \| codex exec --full-auto -` |
+| ✅ | 골디락스와 곰 세 마리 | `Get-Content codex-prompts/goldilocks.md -Raw \| codex exec --full-auto -` |
+| ✅ | 진저브레드맨 | `Get-Content codex-prompts/gingerbread.md -Raw \| codex exec --full-auto -` |
+| ✅ | 금도끼 은도끼 | `Get-Content codex-prompts/goldenaxe.md -Raw \| codex exec --full-auto -` |
+| ✅ | 흥부와 놀부 | `Get-Content codex-prompts/heungbu.md -Raw \| codex exec --full-auto -` |
 
 ## 🎬 영상 모드 (유튜브 업로드용)
 "Read All"을 화면 녹화해서 유튜브에 올리기 위한 전용 화면이에요.
@@ -56,7 +56,7 @@ PowerShell, 프로젝트 폴더에서 실행해요. 동시에 돌려도 돼요. 
 - 가족끼리 일부 공개로 나누는 건 부담이 적어요.
 
 ## 💡 아이디어
-- **새 이야기 4편**: 골디락스, 진저브레드맨, 금도끼 은도끼, 흥부와 놀부의 Level 1은 앱에 들어갔어요 (원고 `scenarios/new-stories-draft.md`). 남은 일은 그림(위 큐), 음성, 나중에 Level 2·3이에요.
+- **새 이야기 4편**: 골디락스, 진저브레드맨, 금도끼 은도끼, 흥부와 놀부의 Level 1은 앱에 들어갔어요 (원고 `scenarios/new-stories-draft.md`). 그림은 완료했어요. 남은 일은 음성과 나중에 Level 2·3이에요.
 - **나중 후보**: 빨간 암탉, 염소 삼형제, 커다란 순무, 잭과 콩나무, 미운 오리 새끼, 시골 쥐와 도시 쥐, 요정과 구두장이, 피터 래빗, 혹부리 영감, 해와 달이 된 오누이(호랑이 장면 순화 필요)
 - **속도 조절 막대**: 기기마다 듣기 편한 속도가 달라서, 첫 화면에서 직접 맞추게 해요.
 - **음성 용량 줄이기**: WAV를 MP3로 바꾸면 약 3분의 1이 돼요. 전체 음성은 약 25MB 예상이에요.
