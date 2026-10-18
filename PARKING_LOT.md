@@ -15,11 +15,11 @@ PowerShell, 프로젝트 폴더에서 한 줄씩 실행해요. 동시에 여러 
 | ✔ | 이야기 | 장수 | 명령 |
 |---|---|---|---|
 | ✅ | 신데렐라 | 4 | `Get-Content codex-prompts/cinderella-levels.md -Raw \| codex exec --full-auto -` |
-| ☐ | 사자와 쥐 | 4 | `Get-Content codex-prompts/lion-levels.md -Raw \| codex exec --full-auto -` |
-| ☐ | 토끼와 거북이 | 4 | `Get-Content codex-prompts/race-levels.md -Raw \| codex exec --full-auto -` |
-| ☐ | 개미와 베짱이 | 5 | `Get-Content codex-prompts/ant-levels.md -Raw \| codex exec --full-auto -` |
-| ☐ | 양치기 소년 | 4 | `Get-Content codex-prompts/wolf-levels.md -Raw \| codex exec --full-auto -` |
-| ☐ | 아기 돼지 삼형제 | 4 | `Get-Content codex-prompts/pigs-levels.md -Raw \| codex exec --full-auto -` |
+| ✅ | 사자와 쥐 | 4 | `Get-Content codex-prompts/lion-levels.md -Raw \| codex exec --full-auto -` |
+| ✅ | 토끼와 거북이 | 4 | `Get-Content codex-prompts/race-levels.md -Raw \| codex exec --full-auto -` |
+| ⏳ | 개미와 베짱이 (베짱이 다리 다시 그리는 중) | 5 | `Get-Content codex-prompts/ant-levels.md -Raw \| codex exec --full-auto -` |
+| ✅ | 양치기 소년 | 4 | `Get-Content codex-prompts/wolf-levels.md -Raw \| codex exec --full-auto -` |
+| ✅ | 아기 돼지 삼형제 | 4 | `Get-Content codex-prompts/pigs-levels.md -Raw \| codex exec --full-auto -` |
 
 그림이 먼저 나와도 괜찮아요. 신데렐라 말고는 Level 2·3 원고가 아직 앱에 들어가지 않아서, 그림은 원고를 넣을 때 연결돼요.
 
