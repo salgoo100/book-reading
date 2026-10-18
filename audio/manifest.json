@@ -1,106 +1,106 @@
 {
  "common/great": {
   "f": "common/great.wav",
-  "h": "c714baa2e8"
+  "h": "095cff88e7"
  },
  "lion/s1-p1": {
   "f": "lion/s1-p1.wav",
-  "h": "b1fc9bc4cb"
+  "h": "8ab5b5c6f6"
  },
  "lion/s1-ask": {
   "f": "lion/s1-ask.wav",
-  "h": "e4aa36d1dc"
+  "h": "bd558df744"
  },
  "lion/s2-p1": {
   "f": "lion/s2-p1.wav",
-  "h": "00b4180184"
+  "h": "5fa8de5063"
  },
  "lion/s2-why": {
   "f": "lion/s2-why.wav",
-  "h": "35ac1e9a7f"
+  "h": "eaebde2471"
  },
  "lion/s2-quiz": {
   "f": "lion/s2-quiz.wav",
-  "h": "d4ff241d19"
+  "h": "b275aff8a1"
  },
  "lion/s2-quiz0": {
   "f": "lion/s2-quiz0.wav",
-  "h": "1ea1e062db"
+  "h": "f43e4c4872"
  },
  "lion/s2-quiz1": {
   "f": "lion/s2-quiz1.wav",
-  "h": "891b75d22e"
+  "h": "63b7d074cb"
  },
  "lion/s2-quiz2": {
   "f": "lion/s2-quiz2.wav",
-  "h": "df6f07b63d"
+  "h": "e53c842b4e"
  },
  "lion/s3-p1": {
   "f": "lion/s3-p1.wav",
-  "h": "20bcfa14e2"
+  "h": "b565da120b"
  },
  "lion/s3-p2": {
   "f": "lion/s3-p2.wav",
-  "h": "16cf7eea72"
+  "h": "1ce6ea451a"
  },
  "lion/s3-why": {
   "f": "lion/s3-why.wav",
-  "h": "03ba9a8f98"
+  "h": "6b9301006f"
  },
  "lion/s3-ask": {
   "f": "lion/s3-ask.wav",
-  "h": "a2c0b59503"
+  "h": "44a622d694"
  },
  "lion/s4-p1": {
   "f": "lion/s4-p1.wav",
-  "h": "170d802a93"
+  "h": "ba5f3eedf3"
  },
  "lion/s4-p2": {
   "f": "lion/s4-p2.wav",
-  "h": "b6802adcdf"
+  "h": "f0018a389b"
  },
  "lion/s4-quiz": {
   "f": "lion/s4-quiz.wav",
-  "h": "993148ed70"
+  "h": "a40ca233cc"
  },
  "lion/s4-quiz0": {
   "f": "lion/s4-quiz0.wav",
-  "h": "f910d3ea46"
+  "h": "255a2c0180"
  },
  "lion/s4-quiz1": {
   "f": "lion/s4-quiz1.wav",
-  "h": "87032484ba"
+  "h": "af019f8690"
  },
  "lion/s4-quiz2": {
   "f": "lion/s4-quiz2.wav",
-  "h": "891b75d22e"
+  "h": "63b7d074cb"
  },
  "lion/s5-p1": {
   "f": "lion/s5-p1.wav",
-  "h": "7571ea9803"
+  "h": "9da5c68325"
  },
  "lion/s5-why": {
   "f": "lion/s5-why.wav",
-  "h": "938adaacff"
+  "h": "7016f16e5d"
  },
  "lion/s6-p1": {
   "f": "lion/s6-p1.wav",
-  "h": "902209305b"
+  "h": "4a85873963"
  },
  "lion/s6-p2": {
   "f": "lion/s6-p2.wav",
-  "h": "44eda33d71"
+  "h": "d46ea037d1"
  },
  "lion/s6-ask": {
   "f": "lion/s6-ask.wav",
-  "h": "e5540abaa9"
+  "h": "f4978e51d9"
  },
  "lion/end": {
   "f": "lion/end.wav",
-  "h": "12d905cd8f"
+  "h": "b838a38d88"
  },
  "lion/moral": {
   "f": "lion/moral.wav",
-  "h": "011e33066c"
+  "h": "98fb0429c0"
  }
 }

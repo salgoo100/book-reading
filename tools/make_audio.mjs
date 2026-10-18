@@ -30,7 +30,7 @@ const storiesSrc = html.slice(html.indexOf("const STORIES = ["), html.indexOf("\
 const STORIES = new Function("KID", storiesSrc.replace("const STORIES =", "return"))(KID);
 
 // 배역: [Gemini 목소리, OpenAI 목소리, 연기 지시]
-const BASE = "For a 6-year-old Korean child learning English: clear, a little slow, warm and lively picture-book storytelling.";
+const BASE = "For a 6-year-old Korean child learning English: clear and expressive at a natural, brisk storytelling pace (not slow, no long pauses), warm and lively like a picture-book read-aloud.";
 const CAST = {
   narrator:   ["Sulafat",     "coral",   "a warm, gentle storyteller reading a bedtime picture book; expressive but calm, natural pauses"],
   lion:       ["Algenib",     "onyx",    "a big lion: deep, rumbly, grand voice; dramatic and a little grumpy, but never truly scary for small kids"],
@@ -115,7 +115,7 @@ const tts = PROVIDER === "gemini" ? ttsGemini : ttsOpenAI;
 
 const manifestPath = path.join(OUT, "manifest.json");
 const manifest = fs.existsSync(manifestPath) ? JSON.parse(fs.readFileSync(manifestPath, "utf8")) : {};
-const hashOf = j => crypto.createHash("sha1").update([PROVIDER, MODEL, ...CAST[j.role], j.text, j.context, KID_SAY].join("|")).digest("hex").slice(0, 10);
+const hashOf = j => crypto.createHash("sha1").update([PROVIDER, MODEL, BASE, ...CAST[j.role], j.text, j.context, KID_SAY].join("|")).digest("hex").slice(0, 10);
 const todo = jobs.filter(j => FORCE || manifest[j.key]?.h !== hashOf(j));
 const chars = todo.reduce((n, j) => n + j.text.length, 0);
 console.log(`[${PROVIDER} ${MODEL}] 클립 ${jobs.length}개 중 새로 만들 것 ${todo.length}개, 약 ${chars}자`);
