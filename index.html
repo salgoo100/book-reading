@@ -286,18 +286,31 @@ const AUDIO_RATE={normal:1.8,slow:1.2};
 function stopAll(){clipId++;player.pause();player.onended=null;if("speechSynthesis" in window)speechSynthesis.cancel()}
 const hasAudio=keys=>keys.length&&keys.every(k=>AUDIO[k]);
 // clips: [{key, offset, len}] 를 이어서 재생. offset/len은 단어 하이라이트용
+// 음성 파일엔 단어 타이밍이 없어서, 단어 길이·문장부호로 각 단어 시점을 추정해 한 단어씩 표시한다.
+// manifest의 s/e(앞뒤 무음을 뺀 실제 말소리 구간, 초)가 있으면 그 구간에 맞춘다
+const wordWeight=w=>2+w.replace(/[^A-Za-z]/g,"").length+(/[.!?]["”]?$/.test(w)?5:/[,;:]["”]?$/.test(w)?3:0);
 function playClips(clips,{spans=null,done=null,slow=false,full=""}={}){
   stopAll(); const my=clipId;
   const starts=[];if(spans){let pos=0;spans.forEach(sp=>{const i=full.indexOf(sp.dataset.w,pos);starts.push(i);pos=i+sp.dataset.w.length})}
-  const mark=c=>spans&&spans.forEach((sp,i)=>sp.classList.toggle("on",!!c&&starts[i]>=c.offset&&starts[i]<c.offset+c.len));
+  const clear=()=>spans&&spans.forEach(sp=>sp.classList.remove("on"));
   let k=0;
   const next=()=>{
     if(my!==clipId)return;
-    if(k>=clips.length){mark(null);done&&done();return}
-    const c=clips[k++]; mark(c);
-    player.src="audio/"+AUDIO[c.key].f; player.defaultPlaybackRate=player.playbackRate=slow?AUDIO_RATE.slow:AUDIO_RATE.normal; player.preservesPitch=true;
-    player.onended=()=>setTimeout(next,250);
-    player.play().catch(()=>{mark(null)});
+    if(k>=clips.length){clear();done&&done();return}
+    const c=clips[k++], meta=AUDIO[c.key], me=k;
+    const idx=spans?spans.map((_,i)=>i).filter(i=>starts[i]>=c.offset&&starts[i]<c.offset+c.len):[];
+    let acc=0; const cum=idx.map(i=>acc+=wordWeight(spans[i].dataset.w));
+    const tick=()=>{
+      if(my!==clipId||me!==k||player.ended)return;  // 다른 클립으로 넘어갔으면 이 루프는 끝
+      const s0=meta.s||0, e0=meta.e||player.duration||1, t=player.currentTime;
+      const f=Math.max(0,Math.min(.999,(t-s0)/(e0-s0)))*acc;
+      const j=cum.findIndex(x=>x>f);
+      clear(); if(t>=s0)spans[idx[j<0?idx.length-1:j]].classList.add("on");
+      setTimeout(tick,50);
+    };
+    player.src="audio/"+meta.f; player.defaultPlaybackRate=player.playbackRate=slow?AUDIO_RATE.slow:AUDIO_RATE.normal; player.preservesPitch=true;
+    player.onended=()=>{clear();setTimeout(next,250)};
+    player.play().then(()=>{if(idx.length)tick()}).catch(clear);
   };
   next();
 }

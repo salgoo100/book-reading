@@ -1,106 +1,158 @@
 {
  "common/great": {
   "f": "common/great.wav",
-  "h": "095cff88e7"
+  "h": "095cff88e7",
+  "s": 0.24,
+  "e": 1.98
  },
  "lion/s1-p1": {
   "f": "lion/s1-p1.wav",
-  "h": "8ab5b5c6f6"
+  "h": "8ab5b5c6f6",
+  "s": 0.22,
+  "e": 4.34
  },
  "lion/s1-ask": {
   "f": "lion/s1-ask.wav",
-  "h": "bd558df744"
+  "h": "bd558df744",
+  "s": 0.28,
+  "e": 2.92
  },
  "lion/s2-p1": {
   "f": "lion/s2-p1.wav",
-  "h": "5fa8de5063"
+  "h": "5fa8de5063",
+  "s": 0.24,
+  "e": 4.38
  },
  "lion/s2-why": {
   "f": "lion/s2-why.wav",
-  "h": "eaebde2471"
+  "h": "eaebde2471",
+  "s": 0.22,
+  "e": 3.84
  },
  "lion/s2-quiz": {
   "f": "lion/s2-quiz.wav",
-  "h": "b275aff8a1"
+  "h": "b275aff8a1",
+  "s": 0.36,
+  "e": 2.18
  },
  "lion/s2-quiz0": {
   "f": "lion/s2-quiz0.wav",
-  "h": "f43e4c4872"
+  "h": "f43e4c4872",
+  "s": 0.32,
+  "e": 3.36
  },
  "lion/s2-quiz1": {
   "f": "lion/s2-quiz1.wav",
-  "h": "63b7d074cb"
+  "h": "63b7d074cb",
+  "s": 0.32,
+  "e": 3.76
  },
  "lion/s2-quiz2": {
   "f": "lion/s2-quiz2.wav",
-  "h": "e53c842b4e"
+  "h": "e53c842b4e",
+  "s": 0.24,
+  "e": 3.8
  },
  "lion/s3-p1": {
   "f": "lion/s3-p1.wav",
-  "h": "b565da120b"
+  "h": "b565da120b",
+  "s": 0.28,
+  "e": 3.38
  },
  "lion/s3-p2": {
   "f": "lion/s3-p2.wav",
-  "h": "1ce6ea451a"
+  "h": "1ce6ea451a",
+  "s": 0.36,
+  "e": 3.92
  },
  "lion/s3-why": {
   "f": "lion/s3-why.wav",
-  "h": "6b9301006f"
+  "h": "6b9301006f",
+  "s": 0.22,
+  "e": 12.32
  },
  "lion/s3-ask": {
   "f": "lion/s3-ask.wav",
-  "h": "44a622d694"
+  "h": "44a622d694",
+  "s": 0.26,
+  "e": 4.4
  },
  "lion/s4-p1": {
   "f": "lion/s4-p1.wav",
-  "h": "ba5f3eedf3"
+  "h": "ba5f3eedf3",
+  "s": 0.28,
+  "e": 3.86
  },
  "lion/s4-p2": {
   "f": "lion/s4-p2.wav",
-  "h": "f0018a389b"
+  "h": "f0018a389b",
+  "s": 0.2,
+  "e": 1.62
  },
  "lion/s4-quiz": {
   "f": "lion/s4-quiz.wav",
-  "h": "a40ca233cc"
+  "h": "a40ca233cc",
+  "s": 0.22,
+  "e": 2.56
  },
  "lion/s4-quiz0": {
   "f": "lion/s4-quiz0.wav",
-  "h": "255a2c0180"
+  "h": "255a2c0180",
+  "s": 0.26,
+  "e": 3.76
  },
  "lion/s4-quiz1": {
   "f": "lion/s4-quiz1.wav",
-  "h": "af019f8690"
+  "h": "af019f8690",
+  "s": 0.18,
+  "e": 3.48
  },
  "lion/s4-quiz2": {
   "f": "lion/s4-quiz2.wav",
-  "h": "63b7d074cb"
+  "h": "63b7d074cb",
+  "s": 0.3,
+  "e": 3.86
  },
  "lion/s5-p1": {
   "f": "lion/s5-p1.wav",
-  "h": "9da5c68325"
+  "h": "9da5c68325",
+  "s": 0.26,
+  "e": 4.7
  },
  "lion/s5-why": {
   "f": "lion/s5-why.wav",
-  "h": "7016f16e5d"
+  "h": "7016f16e5d",
+  "s": 0.28,
+  "e": 5.22
  },
  "lion/s6-p1": {
   "f": "lion/s6-p1.wav",
-  "h": "4a85873963"
+  "h": "4a85873963",
+  "s": 0.3,
+  "e": 2.28
  },
  "lion/s6-p2": {
   "f": "lion/s6-p2.wav",
-  "h": "d46ea037d1"
+  "h": "d46ea037d1",
+  "s": 0.24,
+  "e": 3.68
  },
  "lion/s6-ask": {
   "f": "lion/s6-ask.wav",
-  "h": "f4978e51d9"
+  "h": "f4978e51d9",
+  "s": 0.3,
+  "e": 2.56
  },
  "lion/end": {
   "f": "lion/end.wav",
-  "h": "b838a38d88"
+  "h": "b838a38d88",
+  "s": 0.32,
+  "e": 6.24
  },
  "lion/moral": {
   "f": "lion/moral.wav",
-  "h": "98fb0429c0"
+  "h": "98fb0429c0",
+  "s": 0.28,
+  "e": 3.1
  }
 }

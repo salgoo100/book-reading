@@ -6,6 +6,7 @@
 //   node tools/make_audio.mjs            # 전체 생성 (이미 만든 건 건너뜀)
 //   node tools/make_audio.mjs lion --force   # 다시 생성
 //   node tools/make_audio.mjs --openai   # OpenAI TTS 사용 ($env:OPENAI_API_KEY 필요)
+//   node tools/make_audio.mjs --bounds   # 이미 만든 WAV의 말소리 구간(s/e)만 다시 계산 (API 호출 없음)
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
@@ -113,9 +114,40 @@ async function ttsOpenAI(j) {
 }
 const tts = PROVIDER === "gemini" ? ttsGemini : ttsOpenAI;
 
+// WAV(16-bit PCM)에서 앞뒤 무음을 뺀 실제 말소리 구간 [시작초, 끝초]. 앱의 단어 하이라이트 타이밍에 쓴다
+function wavBounds(buf) {
+  let p = 12, rate = 24000, data = null;
+  while (p + 8 <= buf.length) {
+    const id = buf.toString("ascii", p, p + 4), size = buf.readUInt32LE(p + 4);
+    if (id === "fmt ") rate = buf.readUInt32LE(p + 12);
+    if (id === "data") { data = buf.subarray(p + 8, Math.min(buf.length, p + 8 + size)); break; }
+    p += 8 + size + (size % 2);
+  }
+  if (!data) return null;
+  const n = Math.floor(data.length / 2), win = Math.round(rate * 0.02), loud = [];
+  for (let i = 0; i + win <= n; i += win) {
+    let peak = 0;
+    for (let k = i; k < i + win; k++) peak = Math.max(peak, Math.abs(data.readInt16LE(k * 2)));
+    loud.push(peak > 1200);
+  }
+  const first = loud.indexOf(true), last = loud.lastIndexOf(true);
+  if (first < 0) return null;
+  return [+(first * win / rate).toFixed(2), +(((last + 1) * win) / rate).toFixed(2)];
+}
+
 const manifestPath = path.join(OUT, "manifest.json");
 const manifest = fs.existsSync(manifestPath) ? JSON.parse(fs.readFileSync(manifestPath, "utf8")) : {};
 const hashOf = j => crypto.createHash("sha1").update([PROVIDER, MODEL, BASE, ...CAST[j.role], j.text, j.context, KID_SAY].join("|")).digest("hex").slice(0, 10);
+if (args.includes("--bounds")) {
+  let n = 0;
+  for (const [k, m] of Object.entries(manifest)) {
+    if (!m.f.endsWith(".wav")) continue;
+    const b = wavBounds(fs.readFileSync(path.join(OUT, m.f)));
+    if (b) { [m.s, m.e] = b; n++; }
+  }
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 1));
+  console.log(`말소리 구간 계산 ${n}개`); process.exit(0);
+}
 const todo = jobs.filter(j => FORCE || manifest[j.key]?.h !== hashOf(j));
 const chars = todo.reduce((n, j) => n + j.text.length, 0);
 console.log(`[${PROVIDER} ${MODEL}] 클립 ${jobs.length}개 중 새로 만들 것 ${todo.length}개, 약 ${chars}자`);
@@ -144,6 +176,8 @@ for (const j of todo) {
   fs.mkdirSync(path.dirname(path.join(OUT, file)), { recursive: true });
   fs.writeFileSync(path.join(OUT, file), r.data);
   manifest[j.key] = { f: file, h: hashOf(j) };
+  const b = EXT === "wav" && wavBounds(r.data);
+  if (b) [manifest[j.key].s, manifest[j.key].e] = b;
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 1));  // 중간에 멈춰도 진행분 보존
   console.log(`✓ ${++done}/${todo.length} ${j.key}  [${CAST[j.role][PROVIDER === "gemini" ? 0 : 1]}] ${j.text}`);
 }
