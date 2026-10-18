@@ -3,9 +3,8 @@
 나중에 이어서 할 아이디어와 미뤄 둔 작업. 시작하면 "진행 중"으로 옮기고, 끝나면 지워요.
 
 ## 진행 중
-- **Gemini 음성 남은 분량 만들기** (2026-10-18 기준 140개)
-  - 기존 3편 57개: 양치기 소년 18, 아기 돼지 19, 신데렐라 Level 1 20
-  - 신데렐라 Level 2·3 83개
+- **Gemini 음성 남은 분량 만들기**: 6편 모두 Level 1~3이 앱에 들어가서 약 530개 남았어요 (2026-10-19 기준).
+  - 우선순위: Level 1 나머지 → 각 이야기 Level 2 → Level 3
   - `gemini-3.8-flash-tts`는 Tier 1에서 하루 100번까지라 이틀에 나눠 만들어요. 명령은 `node --env-file=.env tools/make_audio.mjs`이고, 이미 만든 클립은 건너뛰어요.
 
 ## 🎨 Codex 작업 큐 (Level 2·3용 새 그림, 총 25장)
@@ -46,7 +45,6 @@ PowerShell, 프로젝트 폴더에서 한 줄씩 실행해요. 동시에 여러 
 - 가족끼리 일부 공개로 나누는 건 부담이 적어요.
 
 ## 💡 아이디어
-- **다른 이야기도 Level 2·3으로 늘리기**: 시나리오 초안은 `scenarios/levels-draft.md`에 있어요 (5편, 새 그림 21장). 다음 순서는 원고 확정 → 한국어 힌트, Why, Talk, Quiz 붙이기 → Codex 그림 → 음성이에요.
 - **새 이야기 다음 묶음 (결정됨)**: Codex 작업이 끝나면 원고부터 써요. 모두 Level 1부터 시작해요.
   - 🐻 **Goldilocks and the Three Bears**: 여자아이 주인공. "too hot / too cold / just right" 반복, 아빠·엄마·아기 곰 목소리
   - 🍪 **The Gingerbread Man**: *"Run, run, as fast as you can!"* 후렴. 결말(여우가 먹음)은 순화해요

@@ -34,6 +34,7 @@ const STORIES = new Function("KID", storiesSrc.replace("const STORIES =", "retur
 const BASE = "For a 6-year-old Korean child learning English: clear and expressive at a natural, brisk storytelling pace (not slow, no long pauses), warm and lively like a picture-book read-aloud.";
 const CAST = {
   narrator:   ["Sulafat",     "coral",   "a warm, gentle storyteller reading a bedtime picture book; expressive but calm, natural pauses"],
+  mother:     ["Vindemiatrix","sage",    "a gentle, loving mother pig saying goodbye to her little ones"],
   lion:       ["Algenib",     "onyx",    "a big lion: deep, rumbly, grand voice; dramatic and a little grumpy, but never truly scary for small kids"],
   wolf:       ["Orus",        "ash",     "a sly, silly cartoon wolf: growly and theatrical, more funny than scary"],
   villager:   ["Gacrux",      "echo",    "a tired, grumbling village farmer"],
