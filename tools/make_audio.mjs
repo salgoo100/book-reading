@@ -6,6 +6,7 @@
 //   node tools/make_audio.mjs            # 전체 생성 (이미 만든 건 건너뜀)
 //   node tools/make_audio.mjs lion --force   # 다시 생성
 //   node tools/make_audio.mjs --openai   # OpenAI TTS 사용 ($env:OPENAI_API_KEY 필요)
+//   node tools/make_audio.mjs --lv=1,2   # 특정 단계만 (Level 1, 2)
 //   node tools/make_audio.mjs --bounds   # 이미 만든 WAV의 말소리 구간(s/e)만 다시 계산 (API 호출 없음)
 import fs from "node:fs";
 import path from "node:path";
@@ -19,6 +20,7 @@ const DRY = args.includes("--dry");
 const FORCE = args.includes("--force");
 const PROVIDER = args.includes("--openai") ? "openai" : "gemini";
 const ONLY = args.filter(a => !a.startsWith("--"));
+const LVS = (args.find(a => a.startsWith("--lv=")) || "").slice(5).split(",").filter(Boolean).map(Number);
 const MODEL = { gemini: "gemini-3.8-flash-tts", openai: "gpt-4o-mini-tts" }[PROVIDER];
 const EXT = { gemini: "wav", openai: "mp3" }[PROVIDER];
 const KEY_ENV = { gemini: "GEMINI_API_KEY", openai: "OPENAI_API_KEY" }[PROVIDER];
@@ -35,6 +37,22 @@ const BASE = "For a 6-year-old Korean child learning English: clear and expressi
 const CAST = {
   narrator:   ["Sulafat",     "coral",   "a warm, gentle storyteller reading a bedtime picture book; expressive but calm, natural pauses"],
   mother:     ["Vindemiatrix","sage",    "a gentle, loving mother pig saying goodbye to her little ones"],
+  papa:       ["Alnilam",     "onyx",    "Papa Bear: big, deep, warm and slow"],
+  mama:       ["Achernar",    "coral",   "Mama Bear: soft, gentle and caring"],
+  baby:       ["Aoede",       "shimmer", "Baby Bear: a tiny, squeaky little cub, easily upset"],
+  goldilocks: ["Leda",        "nova",    "Goldilocks: a curious, bold little girl about seven years old"],
+  grandma:    ["Gacrux",      "sage",    "a kind old grandmother"],
+  grandpa:    ["Rasalgethi",  "echo",    "a kind old grandfather"],
+  cow:        ["Schedar",     "onyx",    "a big, slow, mooing cow"],
+  horse:      ["Zubenelgenubi","echo",   "an excited, galloping horse"],
+  fox:        ["Algieba",     "ash",     "a sly, smooth-talking fox who sounds friendly but is tricky"],
+  gingerbread:["Puck",        "alloy",   "the Gingerbread Man: cheeky, bouncy, sing-song and proud"],
+  woodcutter: ["Iapetus",     "echo",    "an honest, humble woodcutter from an old Korean village"],
+  spirit:     ["Charon",      "onyx",    "a wise old Korean mountain spirit with a deep, echoing, kind voice"],
+  neighbor:   ["Umbriel",     "ash",     "a greedy, sneaky neighbor who fakes politeness"],
+  heungbu:    ["Achird",      "echo",    "Heungbu: a poor but warm-hearted, gentle younger brother"],
+  nolbu:      ["Algenib",     "onyx",    "Nolbu: a rich, greedy, grumpy older brother"],
+  swallow:    ["Laomedeia",   "shimmer", "a tiny, chirpy swallow"],
   lion:       ["Algenib",     "onyx",    "a big lion: deep, rumbly, grand voice; dramatic and a little grumpy, but never truly scary for small kids"],
   wolf:       ["Orus",        "ash",     "a sly, silly cartoon wolf: growly and theatrical, more funny than scary"],
   villager:   ["Gacrux",      "echo",    "a tired, grumbling village farmer"],
@@ -69,7 +87,7 @@ for (const s of STORIES) {
   if (ONLY.length && !ONLY.includes(s.id)) continue;
   // Level 1은 scenes, Level 2·3은 levels[n]. 키는 index.html과 같은 규칙
   const lvScenes = [[1, s.scenes], ...Object.entries(s.levels || {}).map(([lv, sc]) => [+lv, sc])];
-  for (const [lv, scenes] of lvScenes) scenes.forEach((sc, i) => {
+  for (const [lv, scenes] of lvScenes) if (!LVS.length || LVS.includes(lv)) scenes.forEach((sc, i) => {
     const K = lv === 1 ? `${s.id}/s${i + 1}` : `${s.id}/L${lv}/s${i + 1}`;
     sceneParts(sc).forEach((p, j) => add(`${K}-p${j + 1}`, p.text, p.role, `Story: ${s.title}. Full line of this page: ${sc.text}`));
     if (sc.why) add(`${K}-why`, sc.why.text, roleOf(sc.why.who), `Story: ${s.title}. The character explains to the child why they did this.`);
