@@ -1,0 +1,106 @@
+{
+ "common/great": {
+  "f": "common/great.wav",
+  "h": "c714baa2e8"
+ },
+ "lion/s1-p1": {
+  "f": "lion/s1-p1.wav",
+  "h": "b1fc9bc4cb"
+ },
+ "lion/s1-ask": {
+  "f": "lion/s1-ask.wav",
+  "h": "e4aa36d1dc"
+ },
+ "lion/s2-p1": {
+  "f": "lion/s2-p1.wav",
+  "h": "00b4180184"
+ },
+ "lion/s2-why": {
+  "f": "lion/s2-why.wav",
+  "h": "35ac1e9a7f"
+ },
+ "lion/s2-quiz": {
+  "f": "lion/s2-quiz.wav",
+  "h": "d4ff241d19"
+ },
+ "lion/s2-quiz0": {
+  "f": "lion/s2-quiz0.wav",
+  "h": "1ea1e062db"
+ },
+ "lion/s2-quiz1": {
+  "f": "lion/s2-quiz1.wav",
+  "h": "891b75d22e"
+ },
+ "lion/s2-quiz2": {
+  "f": "lion/s2-quiz2.wav",
+  "h": "df6f07b63d"
+ },
+ "lion/s3-p1": {
+  "f": "lion/s3-p1.wav",
+  "h": "20bcfa14e2"
+ },
+ "lion/s3-p2": {
+  "f": "lion/s3-p2.wav",
+  "h": "16cf7eea72"
+ },
+ "lion/s3-why": {
+  "f": "lion/s3-why.wav",
+  "h": "03ba9a8f98"
+ },
+ "lion/s3-ask": {
+  "f": "lion/s3-ask.wav",
+  "h": "a2c0b59503"
+ },
+ "lion/s4-p1": {
+  "f": "lion/s4-p1.wav",
+  "h": "170d802a93"
+ },
+ "lion/s4-p2": {
+  "f": "lion/s4-p2.wav",
+  "h": "b6802adcdf"
+ },
+ "lion/s4-quiz": {
+  "f": "lion/s4-quiz.wav",
+  "h": "993148ed70"
+ },
+ "lion/s4-quiz0": {
+  "f": "lion/s4-quiz0.wav",
+  "h": "f910d3ea46"
+ },
+ "lion/s4-quiz1": {
+  "f": "lion/s4-quiz1.wav",
+  "h": "87032484ba"
+ },
+ "lion/s4-quiz2": {
+  "f": "lion/s4-quiz2.wav",
+  "h": "891b75d22e"
+ },
+ "lion/s5-p1": {
+  "f": "lion/s5-p1.wav",
+  "h": "7571ea9803"
+ },
+ "lion/s5-why": {
+  "f": "lion/s5-why.wav",
+  "h": "938adaacff"
+ },
+ "lion/s6-p1": {
+  "f": "lion/s6-p1.wav",
+  "h": "902209305b"
+ },
+ "lion/s6-p2": {
+  "f": "lion/s6-p2.wav",
+  "h": "44eda33d71"
+ },
+ "lion/s6-ask": {
+  "f": "lion/s6-ask.wav",
+  "h": "e5540abaa9"
+ },
+ "lion/end": {
+  "f": "lion/end.wav",
+  "h": "12d905cd8f"
+ },
+ "lion/moral": {
+  "f": "lion/moral.wav",
+  "h": "011e33066c"
+ }
+}
