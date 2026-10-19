@@ -3,11 +3,11 @@
 나중에 이어서 할 아이디어와 미뤄 둔 작업. 시작하면 "진행 중"으로 옮기고, 끝나면 지워요.
 
 ## 진행 중
-- **Gemini 음성 남은 분량 만들기**: 6편 모두 Level 1~3이 앱에 들어가서 469개 남았어요 (2026-10-19 기준).
+- **Gemini 음성 남은 분량 만들기**: 10편 전체 646개 중 477개 남았어요 (2026-10-19 기준, 문장 수정으로 다시 만들 12개 포함).
   - 우선순위: Level 1 나머지 → 각 이야기 Level 2 → Level 3
-  - `gemini-3.8-flash-tts`는 Tier 1에서 하루 100번까지라 이틀에 나눠 만들어요. 명령은 `node --env-file=.env tools/make_audio.mjs`이고, 이미 만든 클립은 건너뛰어요.
+  - `gemini-3.8-flash-tts`는 Tier 1에서 하루 100번까지라 하루에 나눠 만들어요. 명령은 `node --env-file=.env tools/make_audio.mjs --lv=1` (그다음 `--lv=2`, `--lv=3`)이고, 이미 만든 클립은 건너뛰어요. 문장을 고친 뒤에는 `--prune`으로 옛 음성을 먼저 지워요.
 
-- **문장 다듬기 (대기)**: 고칠 후보 14개를 `reviews/claude-content-review.md`에 정리했어요. Codex 검증 보고서(`codex-prompts/review.md` → `reviews/codex-review.md`)가 나오면 합쳐서 한 번에 고쳐요.
+- **검증 반영 완료 (2026-10-19)**: Codex 보고서(`reviews/codex-review.md`)의 코드 지적 9개와 문장 후보(`reviews/claude-content-review.md` + Codex 제안)를 반영했어요. 보류: 새 이야기 4편 Level 1 분량(써 보고 결정), 진저브레드맨·흥부 장면 수위(원작 유지).
 
 ## 🎨 Codex 작업 큐 (Level 2·3용 새 그림 25장, 2026-10-19 모두 완료)
 PowerShell, 프로젝트 폴더에서 한 줄씩 실행해요. 동시에 여러 개를 돌려도 돼요. 이야기마다 폴더가 달라서 겹치지 않아요.

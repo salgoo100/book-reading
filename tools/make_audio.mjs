@@ -7,6 +7,7 @@
 //   node tools/make_audio.mjs lion --force   # 다시 생성
 //   node tools/make_audio.mjs --openai   # OpenAI TTS 사용 ($env:OPENAI_API_KEY 필요)
 //   node tools/make_audio.mjs --lv=1,2   # 특정 단계만 (Level 1, 2)
+//   node tools/make_audio.mjs --prune    # 문장이 바뀌어 맞지 않게 된 옛 음성을 지움 (API 호출 없음)
 //   node tools/make_audio.mjs --bounds   # 이미 만든 WAV의 말소리 구간(s/e)만 다시 계산 (API 호출 없음)
 import fs from "node:fs";
 import path from "node:path";
@@ -172,6 +173,13 @@ if (args.includes("--bounds")) {
 const todo = jobs.filter(j => FORCE || manifest[j.key]?.h !== hashOf(j));
 const chars = todo.reduce((n, j) => n + j.text.length, 0);
 console.log(`[${PROVIDER} ${MODEL}] 클립 ${jobs.length}개 중 새로 만들 것 ${todo.length}개, 약 ${chars}자`);
+if (args.includes("--prune")) {
+  // 문장이나 배역이 바뀐 클립의 옛 음성은 앱이 자막과 다른 소리를 내지 않도록 지운다 (다음 생성 때 새로 만듦)
+  const stale = jobs.filter(j => manifest[j.key] && manifest[j.key].h !== hashOf(j));
+  for (const j of stale) { fs.rmSync(path.join(OUT, manifest[j.key].f), { force: true }); delete manifest[j.key]; console.log(`  지움 ${j.key}`); }
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 1));
+  console.log(`옛 음성 ${stale.length}개를 지웠어요`); process.exit(0);
+}
 if (DRY) { todo.forEach(j => console.log(`  ${j.key.padEnd(22)} [${j.role}] ${j.text}`)); process.exit(0); }
 if (!process.env[KEY_ENV]) { console.error(`${KEY_ENV} 환경 변수가 없습니다.`); process.exit(1); }
 

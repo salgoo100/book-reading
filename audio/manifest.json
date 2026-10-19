@@ -17,18 +17,6 @@
   "s": 0.28,
   "e": 2.92
  },
- "lion/s2-p1": {
-  "f": "lion/s2-p1.wav",
-  "h": "5fa8de5063",
-  "s": 0.24,
-  "e": 4.38
- },
- "lion/s2-why": {
-  "f": "lion/s2-why.wav",
-  "h": "eaebde2471",
-  "s": 0.22,
-  "e": 3.84
- },
  "lion/s2-quiz": {
   "f": "lion/s2-quiz.wav",
   "h": "b275aff8a1",
@@ -64,12 +52,6 @@
   "h": "1ce6ea451a",
   "s": 0.36,
   "e": 3.92
- },
- "lion/s3-why": {
-  "f": "lion/s3-why.wav",
-  "h": "6b9301006f",
-  "s": 0.22,
-  "e": 12.32
  },
  "lion/s3-ask": {
   "f": "lion/s3-ask.wav",
@@ -341,18 +323,6 @@
   "s": 0.32,
   "e": 3.3
  },
- "ant/s3-quiz1": {
-  "f": "ant/s3-quiz1.wav",
-  "h": "b679a56a52",
-  "s": 0.32,
-  "e": 2.92
- },
- "ant/s3-quiz2": {
-  "f": "ant/s3-quiz2.wav",
-  "h": "78cfca5760",
-  "s": 0.22,
-  "e": 2.98
- },
  "ant/s4-p1": {
   "f": "ant/s4-p1.wav",
   "h": "311d61a68d",
@@ -466,5 +436,581 @@
   "h": "28a9dcc5b4",
   "s": 0.32,
   "e": 6.98
+ },
+ "wolf/s4-p1": {
+  "f": "wolf/s4-p1.wav",
+  "h": "2f916dcad3",
+  "s": 0.26,
+  "e": 2.98
+ },
+ "wolf/s4-p2": {
+  "f": "wolf/s4-p2.wav",
+  "h": "e45a3b411e",
+  "s": 0.26,
+  "e": 2.28
+ },
+ "wolf/s5-why": {
+  "f": "wolf/s5-why.wav",
+  "h": "77f9bcbabb",
+  "s": 0.34,
+  "e": 4.08
+ },
+ "wolf/s5-quiz": {
+  "f": "wolf/s5-quiz.wav",
+  "h": "64dd795dcf",
+  "s": 0.22,
+  "e": 2.12
+ },
+ "wolf/s5-quiz0": {
+  "f": "wolf/s5-quiz0.wav",
+  "h": "db268edd51",
+  "s": 0.2,
+  "e": 3.32
+ },
+ "wolf/s5-quiz1": {
+  "f": "wolf/s5-quiz1.wav",
+  "h": "255a2c0180",
+  "s": 0.38,
+  "e": 3.76
+ },
+ "wolf/s6-p1": {
+  "f": "wolf/s6-p1.wav",
+  "h": "98a86a04da",
+  "s": 0.24,
+  "e": 5.26
+ },
+ "wolf/end": {
+  "f": "wolf/end.wav",
+  "h": "c6c19baff7",
+  "s": 0.24,
+  "e": 5.62
+ },
+ "wolf/moral": {
+  "f": "wolf/moral.wav",
+  "h": "f1dfdd3c52",
+  "s": 0.26,
+  "e": 1.76
+ },
+ "pigs/s1-p1": {
+  "f": "pigs/s1-p1.wav",
+  "h": "f98c964bb0",
+  "s": 0.28,
+  "e": 3.48
+ },
+ "pigs/s2-p1": {
+  "f": "pigs/s2-p1.wav",
+  "h": "a1e5984a34",
+  "s": 0.28,
+  "e": 3.18
+ },
+ "pigs/s2-p2": {
+  "f": "pigs/s2-p2.wav",
+  "h": "c782edb638",
+  "s": 0.3,
+  "e": 1.96
+ },
+ "pigs/s2-why": {
+  "f": "pigs/s2-why.wav",
+  "h": "dc67c65978",
+  "s": 0.2,
+  "e": 4.04
+ },
+ "pigs/s3-p1": {
+  "f": "pigs/s3-p1.wav",
+  "h": "2eccae67f6",
+  "s": 0.32,
+  "e": 2.9
+ },
+ "pigs/s3-p2": {
+  "f": "pigs/s3-p2.wav",
+  "h": "b41c50acc8",
+  "s": 0.34,
+  "e": 2.08
+ },
+ "pigs/s4-p1": {
+  "f": "pigs/s4-p1.wav",
+  "h": "e105c4190b",
+  "s": 0.36,
+  "e": 5.16
+ },
+ "pigs/s4-why": {
+  "f": "pigs/s4-why.wav",
+  "h": "cd758a08ab",
+  "s": 0.32,
+  "e": 4.14
+ },
+ "pigs/s4-ask": {
+  "f": "pigs/s4-ask.wav",
+  "h": "4b5d73b794",
+  "s": 0.16,
+  "e": 2.8
+ },
+ "pigs/s5-p1": {
+  "f": "pigs/s5-p1.wav",
+  "h": "8d3b8e6a22",
+  "s": 0.32,
+  "e": 1.48
+ },
+ "pigs/s5-p2": {
+  "f": "pigs/s5-p2.wav",
+  "h": "cf519065ff",
+  "s": 0.34,
+  "e": 6.32
+ },
+ "pigs/s5-ask": {
+  "f": "pigs/s5-ask.wav",
+  "h": "56dc9c571b",
+  "s": 0.26,
+  "e": 4.14
+ },
+ "pigs/s6-p1": {
+  "f": "pigs/s6-p1.wav",
+  "h": "747b972f71",
+  "s": 0.32,
+  "e": 6.24
+ },
+ "pigs/s6-quiz": {
+  "f": "pigs/s6-quiz.wav",
+  "h": "c8959a0131",
+  "s": 0.28,
+  "e": 2.92
+ },
+ "pigs/s6-quiz0": {
+  "f": "pigs/s6-quiz0.wav",
+  "h": "c08a21d03b",
+  "s": 0.34,
+  "e": 3.82
+ },
+ "pigs/s6-quiz1": {
+  "f": "pigs/s6-quiz1.wav",
+  "h": "bf6e2b32e7",
+  "s": 0.34,
+  "e": 3.82
+ },
+ "pigs/s6-quiz2": {
+  "f": "pigs/s6-quiz2.wav",
+  "h": "c32975c219",
+  "s": 0.28,
+  "e": 3.06
+ },
+ "pigs/end": {
+  "f": "pigs/end.wav",
+  "h": "2412dc95ca",
+  "s": 0.28,
+  "e": 5.5
+ },
+ "pigs/moral": {
+  "f": "pigs/moral.wav",
+  "h": "dcef303943",
+  "s": 0.3,
+  "e": 2.58
+ },
+ "cinderella/s1-p1": {
+  "f": "cinderella/s1-p1.wav",
+  "h": "70060f1116",
+  "s": 0.28,
+  "e": 6.22
+ },
+ "cinderella/s1-why": {
+  "f": "cinderella/s1-why.wav",
+  "h": "645e56bcd4",
+  "s": 0.2,
+  "e": 4.88
+ },
+ "cinderella/s2-p1": {
+  "f": "cinderella/s2-p1.wav",
+  "h": "9888533f34",
+  "s": 0.36,
+  "e": 5.18
+ },
+ "cinderella/s2-quiz": {
+  "f": "cinderella/s2-quiz.wav",
+  "h": "c6d67d0696",
+  "s": 0.24,
+  "e": 2.12
+ },
+ "cinderella/s2-quiz0": {
+  "f": "cinderella/s2-quiz0.wav",
+  "h": "db268edd51",
+  "s": 0.32,
+  "e": 3.52
+ },
+ "cinderella/s2-quiz1": {
+  "f": "cinderella/s2-quiz1.wav",
+  "h": "255a2c0180",
+  "s": 0.46,
+  "e": 4.08
+ },
+ "cinderella/s3-p1": {
+  "f": "cinderella/s3-p1.wav",
+  "h": "cf68dea58d",
+  "s": 0.28,
+  "e": 3.08
+ },
+ "cinderella/s3-p2": {
+  "f": "cinderella/s3-p2.wav",
+  "h": "9a8b2294ca",
+  "s": 0.24,
+  "e": 2.22
+ },
+ "cinderella/s3-ask": {
+  "f": "cinderella/s3-ask.wav",
+  "h": "00264647f9",
+  "s": 0.3,
+  "e": 4.9
+ },
+ "cinderella/s4-why": {
+  "f": "cinderella/s4-why.wav",
+  "h": "686273b3a5",
+  "s": 0.34,
+  "e": 4.62
+ },
+ "cinderella/s5-ask": {
+  "f": "cinderella/s5-ask.wav",
+  "h": "14c95c4949",
+  "s": 0.3,
+  "e": 6.54
+ },
+ "cinderella/s6-quiz0": {
+  "f": "cinderella/s6-quiz0.wav",
+  "h": "4f81c9c73e",
+  "s": 0.32,
+  "e": 3.3
+ },
+ "cinderella/s6-quiz1": {
+  "f": "cinderella/s6-quiz1.wav",
+  "h": "369bcb286f",
+  "s": 0.36,
+  "e": 3.1
+ },
+ "cinderella/s6-quiz2": {
+  "f": "cinderella/s6-quiz2.wav",
+  "h": "f7ccdaba17",
+  "s": 0.3,
+  "e": 3.44
+ },
+ "cinderella/end": {
+  "f": "cinderella/end.wav",
+  "h": "ce27fe517d",
+  "s": 0.28,
+  "e": 6.2
+ },
+ "cinderella/moral": {
+  "f": "cinderella/moral.wav",
+  "h": "0296a6f4d2",
+  "s": 0.32,
+  "e": 3.02
+ },
+ "goldilocks/s1-p1": {
+  "f": "goldilocks/s1-p1.wav",
+  "h": "ffba502489",
+  "s": 0.32,
+  "e": 2.4
+ },
+ "goldilocks/s1-p2": {
+  "f": "goldilocks/s1-p2.wav",
+  "h": "394aebabeb",
+  "s": 0.3,
+  "e": 4.18
+ },
+ "goldilocks/s1-p3": {
+  "f": "goldilocks/s1-p3.wav",
+  "h": "3688db7e2a",
+  "s": 0.22,
+  "e": 1.26
+ },
+ "goldilocks/s1-ask": {
+  "f": "goldilocks/s1-ask.wav",
+  "h": "10ef6d1d69",
+  "s": 0.32,
+  "e": 3.04
+ },
+ "goldilocks/s2-p1": {
+  "f": "goldilocks/s2-p1.wav",
+  "h": "8c9a70cf90",
+  "s": 0.38,
+  "e": 6.92
+ },
+ "goldilocks/s2-why": {
+  "f": "goldilocks/s2-why.wav",
+  "h": "4dabb9c1e7",
+  "s": 0.34,
+  "e": 4.34
+ },
+ "goldilocks/s3-p1": {
+  "f": "goldilocks/s3-p1.wav",
+  "h": "46ab1e2964",
+  "s": 0.3,
+  "e": 2.22
+ },
+ "goldilocks/s3-p2": {
+  "f": "goldilocks/s3-p2.wav",
+  "h": "83b1ab01ab",
+  "s": 0.22,
+  "e": 3.6
+ },
+ "goldilocks/s3-p3": {
+  "f": "goldilocks/s3-p3.wav",
+  "h": "ef185d0bc6",
+  "s": 0.24,
+  "e": 2.34
+ },
+ "goldilocks/s3-quiz": {
+  "f": "goldilocks/s3-quiz.wav",
+  "h": "2f5c878fbd",
+  "s": 0.28,
+  "e": 3.1
+ },
+ "goldilocks/s3-quiz0": {
+  "f": "goldilocks/s3-quiz0.wav",
+  "h": "2d2560a4a1",
+  "s": 0.28,
+  "e": 3.26
+ },
+ "goldilocks/s3-quiz1": {
+  "f": "goldilocks/s3-quiz1.wav",
+  "h": "a89a475ee6",
+  "s": 0.36,
+  "e": 3.82
+ },
+ "goldilocks/s3-quiz2": {
+  "f": "goldilocks/s3-quiz2.wav",
+  "h": "f7c1e34270",
+  "s": 0.26,
+  "e": 3.92
+ },
+ "goldilocks/s4-p1": {
+  "f": "goldilocks/s4-p1.wav",
+  "h": "737c90fd0d",
+  "s": 0.16,
+  "e": 1.82
+ },
+ "goldilocks/s4-p2": {
+  "f": "goldilocks/s4-p2.wav",
+  "h": "ad93cec53a",
+  "s": 0.38,
+  "e": 4.12
+ },
+ "goldilocks/s4-p3": {
+  "f": "goldilocks/s4-p3.wav",
+  "h": "1f5fbed253",
+  "s": 0.22,
+  "e": 2.88
+ },
+ "goldilocks/s4-ask": {
+  "f": "goldilocks/s4-ask.wav",
+  "h": "9aa24dd2ee",
+  "s": 0.3,
+  "e": 6.88
+ },
+ "goldilocks/s5-p1": {
+  "f": "goldilocks/s5-p1.wav",
+  "h": "054160f4e0",
+  "s": 0.28,
+  "e": 1.9
+ },
+ "goldilocks/s5-p2": {
+  "f": "goldilocks/s5-p2.wav",
+  "h": "ed1b82ba81",
+  "s": 0.38,
+  "e": 5.18
+ },
+ "goldilocks/s5-p3": {
+  "f": "goldilocks/s5-p3.wav",
+  "h": "7f1c0c3322",
+  "s": 0.28,
+  "e": 3.04
+ },
+ "goldilocks/s5-quiz": {
+  "f": "goldilocks/s5-quiz.wav",
+  "h": "8492e8d8ca",
+  "s": 0.24,
+  "e": 1.92
+ },
+ "goldilocks/s5-quiz0": {
+  "f": "goldilocks/s5-quiz0.wav",
+  "h": "0670f611f7",
+  "s": 0.28,
+  "e": 3.3
+ },
+ "goldilocks/s5-quiz1": {
+  "f": "goldilocks/s5-quiz1.wav",
+  "h": "27ea0dbc80",
+  "s": 0.26,
+  "e": 3.54
+ },
+ "goldilocks/s6-p1": {
+  "f": "goldilocks/s6-p1.wav",
+  "h": "f31fcb5cbd",
+  "s": 0.28,
+  "e": 2.12
+ },
+ "goldilocks/s6-p2": {
+  "f": "goldilocks/s6-p2.wav",
+  "h": "8bf8b48f76",
+  "s": 0.22,
+  "e": 2.78
+ },
+ "goldilocks/s6-p3": {
+  "f": "goldilocks/s6-p3.wav",
+  "h": "46d80c51cb",
+  "s": 0.16,
+  "e": 6.74
+ },
+ "goldilocks/s6-why": {
+  "f": "goldilocks/s6-why.wav",
+  "h": "42984d548e",
+  "s": 0.32,
+  "e": 5.36
+ },
+ "goldilocks/s6-ask": {
+  "f": "goldilocks/s6-ask.wav",
+  "h": "dda8b169c8",
+  "s": 0.24,
+  "e": 3.68
+ },
+ "goldilocks/end": {
+  "f": "goldilocks/end.wav",
+  "h": "b7f227807c",
+  "s": 0.42,
+  "e": 4.96
+ },
+ "goldilocks/moral": {
+  "f": "goldilocks/moral.wav",
+  "h": "5579e6862b",
+  "s": 0.32,
+  "e": 2.34
+ },
+ "gingerbread/s1-p1": {
+  "f": "gingerbread/s1-p1.wav",
+  "h": "e9ec055812",
+  "s": 0.26,
+  "e": 7.06
+ },
+ "gingerbread/s1-ask": {
+  "f": "gingerbread/s1-ask.wav",
+  "h": "e6f1423d91",
+  "s": 0.32,
+  "e": 2.84
+ },
+ "gingerbread/s2-p1": {
+  "f": "gingerbread/s2-p1.wav",
+  "h": "e2805d04ec",
+  "s": 0.26,
+  "e": 5.86
+ },
+ "gingerbread/s2-why": {
+  "f": "gingerbread/s2-why.wav",
+  "h": "2394213c48",
+  "s": 0.26,
+  "e": 4.5
+ },
+ "gingerbread/s3-p1": {
+  "f": "gingerbread/s3-p1.wav",
+  "h": "594b0df9c2",
+  "s": 0.3,
+  "e": 2.7
+ },
+ "gingerbread/s3-p2": {
+  "f": "gingerbread/s3-p2.wav",
+  "h": "c338e71078",
+  "s": 0.28,
+  "e": 3.62
+ },
+ "gingerbread/s3-p3": {
+  "f": "gingerbread/s3-p3.wav",
+  "h": "f4f8f64058",
+  "s": 0.36,
+  "e": 2.2
+ },
+ "gingerbread/s3-quiz": {
+  "f": "gingerbread/s3-quiz.wav",
+  "h": "d504cf5401",
+  "s": 0.3,
+  "e": 1.96
+ },
+ "gingerbread/s3-quiz0": {
+  "f": "gingerbread/s3-quiz0.wav",
+  "h": "e421638186",
+  "s": 0.3,
+  "e": 4.1
+ },
+ "gingerbread/s3-quiz1": {
+  "f": "gingerbread/s3-quiz1.wav",
+  "h": "04ad13bc2b",
+  "s": 0.28,
+  "e": 3.36
+ },
+ "gingerbread/s4-p1": {
+  "f": "gingerbread/s4-p1.wav",
+  "h": "029a7403bd",
+  "s": 0.24,
+  "e": 4.48
+ },
+ "gingerbread/s4-p2": {
+  "f": "gingerbread/s4-p2.wav",
+  "h": "2a502a2958",
+  "s": 0.26,
+  "e": 4.5
+ },
+ "gingerbread/s4-why": {
+  "f": "gingerbread/s4-why.wav",
+  "h": "49a7d3c2e3",
+  "s": 0.32,
+  "e": 6.24
+ },
+ "gingerbread/s4-ask": {
+  "f": "gingerbread/s4-ask.wav",
+  "h": "632f72f0d3",
+  "s": 0.3,
+  "e": 2.52
+ },
+ "gingerbread/s5-p1": {
+  "f": "gingerbread/s5-p1.wav",
+  "h": "85050ba59e",
+  "s": 0.2,
+  "e": 1.9
+ },
+ "gingerbread/s5-p2": {
+  "f": "gingerbread/s5-p2.wav",
+  "h": "39af38d109",
+  "s": 0.28,
+  "e": 4.56
+ },
+ "gingerbread/s5-quiz": {
+  "f": "gingerbread/s5-quiz.wav",
+  "h": "579b8947cc",
+  "s": 0.26,
+  "e": 3.18
+ },
+ "gingerbread/s5-quiz0": {
+  "f": "gingerbread/s5-quiz0.wav",
+  "h": "6287019d4f",
+  "s": 0.1,
+  "e": 4.08
+ },
+ "gingerbread/s5-quiz1": {
+  "f": "gingerbread/s5-quiz1.wav",
+  "h": "71dfea0595",
+  "s": 0.26,
+  "e": 3.48
+ },
+ "gingerbread/s6-p1": {
+  "f": "gingerbread/s6-p1.wav",
+  "h": "7e612c0e2b",
+  "s": 0.24,
+  "e": 8.02
+ },
+ "gingerbread/s6-ask": {
+  "f": "gingerbread/s6-ask.wav",
+  "h": "4e3231bfe1",
+  "s": 0.34,
+  "e": 3.56
+ },
+ "gingerbread/end": {
+  "f": "gingerbread/end.wav",
+  "h": "0c541a873c",
+  "s": 0.2,
+  "e": 5.28
  }
 }
