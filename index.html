@@ -55,6 +55,26 @@ main{max-width:900px;margin:0 auto;padding:0 16px 40px}
 .art.ill img{width:100%;max-height:58vh;object-fit:cover;border-radius:18px;display:block;background:#f3e6cf;box-shadow:0 6px 18px rgba(90,60,30,.18)}
 @keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
 .pop{animation:pop .35s ease-out}
+/* 🎬 영상 모드 */
+#vwrap{position:fixed;inset:0;background:#000;z-index:50;display:flex;align-items:center;justify-content:center;cursor:pointer}
+#vwrap.playing{cursor:none}
+#vstage{position:relative;width:min(100vw,177.78vh);aspect-ratio:16/9;overflow:hidden;background:#111;container-type:inline-size}
+.vbg{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(20px) brightness(.6)}
+.vimg{position:absolute;left:50%;top:0;height:100%;aspect-ratio:4/3;transform:translateX(-50%);object-fit:cover;transition:opacity .3s}
+.vsub{position:absolute;left:0;right:0;bottom:0;padding:5cqw 7cqw 2.6cqw;text-align:center;color:#fff;
+  background:linear-gradient(transparent,rgba(0,0,0,.78) 35%);text-shadow:0 2px 6px rgba(0,0,0,.6)}
+.ven{font-size:3.3cqw;line-height:1.45;font-weight:bold}
+.ven span{border-radius:.2em;padding:0 .08em;transition:color .1s}
+.ven span.on{color:#ffe066}
+.vko{font-size:2cqw;opacity:.9;margin-top:.5cqw}
+.vcard{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:6cqw;background:rgba(0,0,0,.45);color:#fff;text-shadow:0 3px 10px rgba(0,0,0,.7)}
+.vcard.show{display:flex}
+.vcard h1{font-size:6.5cqw;margin:0 0 1cqw}
+.vcard p{font-size:3.4cqw;margin:.6cqw 0}
+.vcard .vq{font-size:4.2cqw;font-weight:bold;background:rgba(255,248,236,.95);color:#3a2e2a;text-shadow:none;padding:2.5cqw 4cqw;border-radius:3cqw}
+.vcard .vqk{font-size:2.4cqw;opacity:.95}
+.vhint{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;opacity:.85;font-size:14px}
 </style>
 </head>
 <body>
@@ -617,7 +637,7 @@ const speakAs=(text,role,key)=>key&&AUDIO[key]?playClips([{key,offset:0,len:0}])
 // ---------- 미리 만든 OpenAI TTS 음성 (audio/manifest.json) ----------
 // 파일이 있으면 MP3를 틀고, 없으면 위의 브라우저 음성으로 대신 읽는다
 let AUDIO={};
-fetch("audio/manifest.json").then(r=>r.ok?r.json():{}).then(m=>AUDIO=m).catch(()=>{});
+fetch("audio/manifest.json").then(r=>r.ok?r.json():{}).then(m=>{AUDIO=m;if(vSetupOpen&&!document.getElementById("vwrap"))videoSetup()}).catch(()=>{});
 const player=new Audio(); let clipId=0;
 // 미리 만든 음성의 재생 속도 (음높이는 유지). 기본은 조금 빠르게, Slow 버튼은 천천히
 const AUDIO_RATE={normal:1.2,slow:.85};
@@ -671,17 +691,19 @@ function levels(id){
 }
 
 function home(){
-  stopAuto(); stopAll();
+  stopAuto(); stopAll(); vSetupOpen=false;
   app.innerHTML=`<p style="font-size:1.1rem">Hi, ${KID}! 👋 Pick a story!</p><div class="grid">${
     STORIES.map(s=>`<button class="book" data-id="${s.id}"><div class="cover"><img src="images/${s.id}/scene${s.scenes.length}.webp" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px" onerror="this.replaceWith('${s.cover}')"></div><b>${s.title}</b><small>${s.ko}</small>${s.levels?`<small style="display:block;margin-top:4px">${[1,...Object.keys(s.levels)].map(l=>LV[l][0]).join(" ")}</small>`:""}${finished[s.id]?'<div class="done">✅ Done!</div>':''}</button>`).join("")
   }</div>
   <div style="margin-top:28px;color:var(--soft);font-size:.95rem">🗣️ 나레이터 목소리 (부모용) · 캐릭터 목소리는 자동 배정<br>
     <select id="voiceSel" style="font:inherit;padding:8px;border-radius:10px;margin-top:6px;max-width:100%"></select>
-    <button class="btn" id="test" style="margin-left:6px;padding:8px 12px">▶ 들어보기</button></div>`;
+    <button class="btn" id="test" style="margin-left:6px;padding:8px 12px">▶ 들어보기</button>
+    <br><button class="btn" id="video" style="margin-top:12px;padding:8px 12px">🎬 영상 모드 (녹화용)</button></div>`;
   app.querySelectorAll(".book").forEach(b=>b.onclick=()=>STORIES.find(x=>x.id===b.dataset.id).levels?levels(b.dataset.id):read(b.dataset.id,0));
   renderVoicePicker();
   document.getElementById("voiceSel").onchange=e=>{voice=voices.find(v=>v.name===e.target.value)||voice;store.set("voice",voice?.name);speak(`Hi ${KID}! Let's read a story together.`)};
   document.getElementById("test").onclick=()=>speak(`Hi ${KID}! Once upon a time, a big lion was sleeping under a tree.`);
+  document.getElementById("video").onclick=videoSetup;
 }
 
 function read(id,i,lv=1){
@@ -769,7 +791,84 @@ function end(s,lv=1){
   document.getElementById("home").onclick=home;
 }
 
-home();
+// ---------- 🎬 영상 모드 (유튜브 녹화용) ----------
+// 버튼 없는 16:9 화면에 그림 + 자막, 장면 자동 넘김. 아이 이름은 VIDEO_NAME으로 바꾸고,
+// 이름이 들어간 음성 클립은 틀지 않는다. Gemini 음성이 모두 있는 단계만 고를 수 있다
+const VIDEO_NAME="friend";
+const vText=t=>t.replaceAll(KID,VIDEO_NAME);
+const sceneKey=(s,lv,i)=>lv===1?`${s.id}/s${i+1}`:`${s.id}/L${lv}/s${i+1}`;
+const videoReady=(s,lv)=>!!AUDIO[`${s.id}/moral`]&&scenesOf(s,lv).every((sc,i)=>sceneParts(sc).every((_,j)=>AUDIO[`${sceneKey(s,lv,i)}-p${j+1}`]));
+let vOpt=store.get("vopt",{ko:false,talk:true}), vRun=0, vSetupOpen=false;
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+
+function videoSetup(){
+  stopAuto(); stopAll(); vSetupOpen=true; history.replaceState(null,"","#video");
+  const rows=STORIES.flatMap(s=>[1,...Object.keys(s.levels||{}).map(Number)].map(lv=>({s,lv,ok:videoReady(s,lv)})));
+  app.innerHTML=`<div class="top"><button class="btn" id="home">🏠</button><b style="flex:1">🎬 Video mode</b></div>
+  <p style="color:var(--soft);line-height:1.5">녹화용 화면이에요. 버튼 없이 그림과 자막만 나오고 장면이 자동으로 넘어가요.
+  아이 이름은 "${VIDEO_NAME}"로 바뀌어요. Gemini 음성이 모두 있는 단계만 고를 수 있어요.<br>
+  시작 화면에서 클릭하거나 스페이스를 누르면 전체 화면으로 재생돼요. Esc를 누르면 나가요.</p>
+  <div class="row" style="justify-content:flex-start">
+    <label class="btn"><input type="checkbox" id="vko" ${vOpt.ko?"checked":""}> 한국어 자막</label>
+    <label class="btn"><input type="checkbox" id="vtalk" ${vOpt.talk?"checked":""}> 💬 Talk 질문 (생각할 시간)</label>
+  </div>
+  <div class="grid" style="margin-top:14px">${rows.map(r=>`<button class="book" data-id="${r.s.id}" data-lv="${r.lv}" ${r.ok?"":"disabled style=\"opacity:.4;cursor:default\""}>
+    <b>${r.s.title}</b><small>${r.s.levels?`${LV[r.lv][0]} ${LV[r.lv][1]}`:""}${r.ok?"":" · 음성 준비 중"}</small></button>`).join("")}</div>`;
+  document.getElementById("home").onclick=()=>{vSetupOpen=false;history.replaceState(null,"",location.pathname);home()};
+  const save=()=>{vOpt={ko:document.getElementById("vko").checked,talk:document.getElementById("vtalk").checked};store.set("vopt",vOpt)};
+  document.getElementById("vko").onchange=save; document.getElementById("vtalk").onchange=save;
+  app.querySelectorAll(".book:not([disabled])").forEach(b=>b.onclick=()=>videoPlay(b.dataset.id,+b.dataset.lv));
+}
+
+function videoPlay(id,lv){
+  const s=STORIES.find(x=>x.id===id), scs=scenesOf(s,lv), my=++vRun;
+  const wrap=document.createElement("div"); wrap.id="vwrap";
+  wrap.innerHTML=`<div id="vstage"><div class="vbg"></div><img class="vimg" alt="">
+    <div class="vsub"><div class="ven"></div><div class="vko"></div></div><div class="vcard"></div></div>
+    <div class="vhint">Click or press Space to start · Esc to exit</div>`;
+  document.body.appendChild(wrap);
+  const $=q=>wrap.querySelector(q), bg=$(".vbg"), img=$(".vimg"), sub=$(".vsub"), en=$(".ven"), ko=$(".vko"), card=$(".vcard");
+  const pic=(src)=>{img.style.opacity=0;setTimeout(()=>{img.src=src;bg.style.backgroundImage=`url(${src})`;img.style.opacity=1},300)};
+  const showCard=html=>{card.innerHTML=html;card.classList.add("show")};
+  const hideCard=()=>card.classList.remove("show");
+  const exit=()=>{vRun++;stopAll();document.removeEventListener("keydown",key);wrap.remove();if(document.fullscreenElement)document.exitFullscreen().catch(()=>{})};
+  const key=e=>{if(e.key==="Escape")exit();else if(e.key===" "&&!started){e.preventDefault();start()}};
+  document.addEventListener("keydown",key);
+  let started=false;
+  pic(`images/${s.id}/scene1.webp`);
+  showCard(`<h1>${s.title}</h1>${s.levels?`<p>${LV[lv][0]} ${LV[lv][1]}</p>`:""}`);
+  sub.style.visibility="hidden";
+  wrap.onclick=()=>{if(!started)start()};
+  async function start(){
+    started=true; $(".vhint").remove(); wrap.classList.add("playing");
+    if(wrap.requestFullscreen)await wrap.requestFullscreen().catch(()=>{});
+    await wait(2500); if(my!==vRun)return;
+    hideCard(); sub.style.visibility="visible";
+    for(let i=0;i<scs.length;i++){
+      const sc=scs[i], K=sceneKey(s,lv,i), parts=sceneParts(sc);
+      pic(`images/${s.id}/${picOf(sc,i)}.webp`);
+      en.innerHTML=sc.text.split(/\s+/).map(w=>`<span data-w="${w.replace(/"/g,"&quot;")}">${w}</span>`).join(" ");
+      ko.textContent=vOpt.ko?sc.ko:"";
+      await wait(600); if(my!==vRun)return;
+      await new Promise(res=>playClips(parts.map((p,j)=>({key:`${K}-p${j+1}`,offset:p.offset,len:p.text.length})),{spans:[...en.querySelectorAll("span")],full:sc.text,done:res}));
+      if(my!==vRun)return;
+      await wait(1200); if(my!==vRun)return;
+      // 💬 Talk 질문: 화면에 띄우고 생각할 시간을 준다. 이름이 들어간 질문은 음성 없이 자막만
+      if(vOpt.talk&&sc.ask){
+        showCard(`<p class="vq">💬 ${vText(sc.ask.q)}</p>${vOpt.ko?`<p class="vqk">${vText(sc.ask.ko).replaceAll("태리","친구")}</p>`:""}`);
+        if(!sc.ask.q.includes(KID)&&AUDIO[`${K}-ask`])await new Promise(res=>playClips([{key:`${K}-ask`,offset:0,len:0}],{done:res}));
+        await wait(4000); if(my!==vRun)return;
+        hideCard();
+      }
+    }
+    sub.style.visibility="hidden";
+    showCard(`<h1>The End</h1><p>💡 ${s.moral}</p>${vOpt.ko?`<p class="vqk">${s.moralKo}</p>`:""}`);
+    await wait(800); if(my!==vRun)return;
+    playClips([{key:`${s.id}/moral`,offset:0,len:0}]);
+  }
+}
+
+location.hash==="#video"?videoSetup():home();
 </script>
 </body>
 </html>
