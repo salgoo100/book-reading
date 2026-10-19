@@ -7,6 +7,8 @@
   - 우선순위: Level 1 나머지 → 각 이야기 Level 2 → Level 3
   - `gemini-3.8-flash-tts`는 Tier 1에서 하루 100번까지라 이틀에 나눠 만들어요. 명령은 `node --env-file=.env tools/make_audio.mjs`이고, 이미 만든 클립은 건너뛰어요.
 
+- **문장 다듬기 (대기)**: 고칠 후보 14개를 `reviews/claude-content-review.md`에 정리했어요. Codex 검증 보고서(`codex-prompts/review.md` → `reviews/codex-review.md`)가 나오면 합쳐서 한 번에 고쳐요.
+
 ## 🎨 Codex 작업 큐 (Level 2·3용 새 그림 25장, 2026-10-19 모두 완료)
 PowerShell, 프로젝트 폴더에서 한 줄씩 실행해요. 동시에 여러 개를 돌려도 돼요. 이야기마다 폴더가 달라서 겹치지 않아요.
 끝나면 Claude에게 "끝났어"라고 알려주세요. 변환(`python tools/convert_images.py`), 확인, 배포는 Claude가 해요.
