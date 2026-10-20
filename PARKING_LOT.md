@@ -18,6 +18,16 @@
   - 🔎 확인할 것: Gemini Pro 구독이 끝나도 API 결제(Tier 1)가 유지되는지 AI Studio Billing에서 확인하기.
   - 🔎 개선 후보: 마을 사람(villager) 목소리 `Gacrux`가 여성 음색일 수 있어요. 나이 든 농부(남성)에 맞게 남성 목소리로 바꾸면 관련 클립을 다시 만들어야 해요.
 
+## 🎨 Codex 작업 큐: 새 이야기 Level 2·3 (총 16장)
+원고: `scenarios/new-stories-levels-draft.md`. 동시에 돌려도 돼요. 끝나면 Claude에게 알려주세요.
+
+| ✔ | 이야기 | 명령 |
+|---|---|---|
+| ☐ | 골디락스와 곰 세 마리 | `Get-Content codex-prompts/goldilocks-levels.md -Raw \| codex exec --full-auto -` |
+| ☐ | 진저브레드맨 | `Get-Content codex-prompts/gingerbread-levels.md -Raw \| codex exec --full-auto -` |
+| ☐ | 금도끼 은도끼 | `Get-Content codex-prompts/goldenaxe-levels.md -Raw \| codex exec --full-auto -` |
+| ☐ | 흥부와 놀부 | `Get-Content codex-prompts/heungbu-levels.md -Raw \| codex exec --full-auto -` |
+
 ## 🎬 영상 모드 (유튜브 업로드용)
 **기본 기능 완성** (2026-10-19). 첫 화면 맨 아래 **🎬 영상 모드 (녹화용)** 버튼, 또는 주소 끝에 `#video`.
 - 16:9 화면에 그림과 자막(한국어 선택), 장면 자동 넘김, 제목·끝 화면, Talk 질문의 생각할 시간
