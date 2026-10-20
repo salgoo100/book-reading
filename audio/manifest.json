@@ -779,30 +779,6 @@
   "s": 0.26,
   "e": 3.92
  },
- "goldilocks/s4-p1": {
-  "f": "goldilocks/s4-p1.wav",
-  "h": "737c90fd0d",
-  "s": 0.16,
-  "e": 1.82
- },
- "goldilocks/s4-p2": {
-  "f": "goldilocks/s4-p2.wav",
-  "h": "ad93cec53a",
-  "s": 0.38,
-  "e": 4.12
- },
- "goldilocks/s4-p3": {
-  "f": "goldilocks/s4-p3.wav",
-  "h": "1f5fbed253",
-  "s": 0.22,
-  "e": 2.88
- },
- "goldilocks/s4-ask": {
-  "f": "goldilocks/s4-ask.wav",
-  "h": "9aa24dd2ee",
-  "s": 0.3,
-  "e": 6.88
- },
  "goldilocks/s5-p1": {
   "f": "goldilocks/s5-p1.wav",
   "h": "054160f4e0",
