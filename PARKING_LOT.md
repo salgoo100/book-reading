@@ -18,15 +18,15 @@
   - 🔎 확인할 것: Gemini Pro 구독이 끝나도 API 결제(Tier 1)가 유지되는지 AI Studio Billing에서 확인하기.
   - 🔎 개선 후보: 마을 사람(villager) 목소리 `Gacrux`가 여성 음색일 수 있어요. 나이 든 농부(남성)에 맞게 남성 목소리로 바꾸면 관련 클립을 다시 만들어야 해요.
 
-## 🎨 Codex 작업 큐: 새 이야기 Level 2·3 (총 16장)
+## 🎨 Codex 작업 큐: 새 이야기 Level 2·3 (총 16장, 2026-10-20 모두 완료)
 원고: `scenarios/new-stories-levels-draft.md`. 동시에 돌려도 돼요. 끝나면 Claude에게 알려주세요.
 
 | ✔ | 이야기 | 명령 |
 |---|---|---|
-| ☐ | 골디락스와 곰 세 마리 | `Get-Content codex-prompts/goldilocks-levels.md -Raw \| codex exec --full-auto -` |
-| ☐ | 진저브레드맨 | `Get-Content codex-prompts/gingerbread-levels.md -Raw \| codex exec --full-auto -` |
-| ☐ | 금도끼 은도끼 | `Get-Content codex-prompts/goldenaxe-levels.md -Raw \| codex exec --full-auto -` |
-| ☐ | 흥부와 놀부 | `Get-Content codex-prompts/heungbu-levels.md -Raw \| codex exec --full-auto -` |
+| ✅ | 골디락스와 곰 세 마리 | `Get-Content codex-prompts/goldilocks-levels.md -Raw \| codex exec --full-auto -` |
+| ✅ | 진저브레드맨 | `Get-Content codex-prompts/gingerbread-levels.md -Raw \| codex exec --full-auto -` |
+| ✅ | 금도끼 은도끼 | `Get-Content codex-prompts/goldenaxe-levels.md -Raw \| codex exec --full-auto -` |
+| ✅ | 흥부와 놀부 | `Get-Content codex-prompts/heungbu-levels.md -Raw \| codex exec --full-auto -` |
 
 ## 🎬 영상 모드 (유튜브 업로드용)
 **기본 기능 완성** (2026-10-19). 첫 화면 맨 아래 **🎬 영상 모드 (녹화용)** 버튼, 또는 주소 끝에 `#video`.
@@ -50,7 +50,7 @@
 - **음성 용량 줄이기**: WAV를 MP3로 바꾸면 약 3분의 1이 돼요. 지금 179개가 약 36MB라서, 전체 646개면 약 130MB가 돼요. 다 만들고 나면 바꾸는 걸 추천해요.
 
 ## ✅ 완료 기록
-- **2026-10-20**: Level 1 음성 10편 완료. 새 이야기 4편 Level 2·3 원고(`scenarios/new-stories-levels-draft.md`)를 앱에 넣음, 골디락스 L1 의자 장면 원작화. 그림 16장은 Codex 작업 큐에 있어요.
+- **2026-10-20**: Level 1 음성 10편 완료. 새 이야기 4편 Level 2·3 원고(`scenarios/new-stories-levels-draft.md`)를 앱에 넣음, 골디락스 L1 의자 장면 원작화. 그림 16장도 완료했어요.
 - **2026-10-18**: 앱 첫 버전(6편), Codex 수채화 그림, GitHub Pages 배포, 아이콘, 캐릭터별 목소리, 전체 읽기, Gemini TTS, "태리"는 "Terry"로 읽기
 - **2026-10-19**
   - 6편 Level 2·3 (원고 `scenarios/levels-draft.md`, 신데렐라 포함) + 새 그림 25장
