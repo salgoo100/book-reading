@@ -188,8 +188,9 @@ let done = 0, failed = 0;
 for (const j of todo) {
   let r;
   for (let attempt = 1; attempt <= 5; attempt++) {
-    r = await tts(j);
-    if (r.status !== 429 && !(r.status >= 500)) break;
+    // 네트워크가 끊기면(ECONNRESET 등) 스크립트가 멈추지 않고 다시 시도한다
+    try { r = await tts(j); } catch (e) { r = { status: -1, error: `network: ${e.cause?.code || e.message}` }; }
+    if (r.status !== 429 && !(r.status >= 500) && r.status !== -1) break;
     const wait = 15000 * attempt;  // 무료 사용량 한도(분당 요청 수)에 걸리면 잠시 쉬었다 재시도
     console.log(`  … ${j.key}: ${r.status}, ${wait / 1000}초 후 재시도 (${attempt}/5)`);
     await sleep(wait);
